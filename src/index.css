@@ -12,3 +12,7 @@
   font-family: "Ruluko";
   src: url("/fonts/Ruluko/Ruluko-Regular.ttf") format("truetype");
 }
+
+html {
+  font-size: 18px;
+}

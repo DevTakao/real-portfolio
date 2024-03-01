@@ -5,7 +5,7 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
-  assetsInclude: ["./**/*.ttf"],
+  assetsInclude: ["@/assets/**/*"],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
