@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "ElsieSwashCaps";
+  src: url("/fonts/ElsieSwashCaps/ElsieSwashCaps-Black.ttf") format("truetype"),
+    url("/fonts/ElsieSwashCaps/ElsieSwashCaps-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ruluko";
+  src: url("/fonts/Ruluko/Ruluko-Regular.ttf") format("truetype");
+}
