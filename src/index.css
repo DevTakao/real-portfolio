@@ -16,3 +16,8 @@
 html {
   font-size: 18px;
 }
+
+body {
+  background-color: #1f1f1f;
+  color: #fefefe;
+}
