@@ -8,8 +8,8 @@ const NavBar = () => {
           </a>
         </li>
         <li className="nav-link">
-          <a href="#career" className="font-medium hover:underline">
-            Career
+          <a href="#experience" className="font-medium hover:underline">
+            Experience
           </a>
         </li>
         <li className="nav-link">
