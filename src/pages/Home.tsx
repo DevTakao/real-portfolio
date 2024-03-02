@@ -1,3 +1,4 @@
+import ExpSection from "@/components/home/ExpSection";
 import HeroSection from "@/components/home/HeroSection";
 import IntroSection from "@/components/home/IntroSection";
 import SkillSection from "@/components/home/SkillSection";
@@ -8,6 +9,7 @@ const Home = () => {
       <HeroSection />
       <IntroSection />
       <SkillSection />
+      <ExpSection />
     </>
   );
 };
