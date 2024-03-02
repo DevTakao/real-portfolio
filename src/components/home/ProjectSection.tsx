@@ -24,7 +24,7 @@ const ProjectBlock = ({ title, body, children }: ProjectBlockProps) => {
 
 const ProjectSection = () => {
   return (
-    <section className="relative bg-gradient-to-b from-green-light to-green-dark py-12 md:py-24">
+    <section id="projects" className="relative bg-gradient-to-b from-green-light to-green-dark py-12 md:py-24">
       <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">Projects Finished</h3>
       <div className="projects-container grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5 max-w-[90%] mx-auto px-5">
         <ProjectBlock title="Chrome Extension" body="Useful chrome extensions with the modern Manifest V3 API.">
