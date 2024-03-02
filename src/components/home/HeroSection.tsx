@@ -5,6 +5,7 @@ const HeroSection = () => {
   return (
     <section className="hero-section relative">
       <img src={Forest} alt="forest" className="block w-full h-screen object-cover" />
+
       <div className="hero-content absolute z-[1] top-0 left-0 w-full h-full flex flex-col items-center justify-center">
         <div className="hero-title inline-block relative">
           <h1
@@ -21,6 +22,7 @@ const HeroSection = () => {
           </h2>
         </div>
       </div>
+
       <img
         src={ForestOverlay}
         alt="forest"
