@@ -1,10 +1,12 @@
 import HeroSection from "@/components/home/HeroSection";
+import IntroSection from "@/components/home/IntroSection";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <HeroSection />
-    </div>
+      <IntroSection />
+    </>
   );
 };
 
