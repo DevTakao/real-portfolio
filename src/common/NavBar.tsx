@@ -13,13 +13,13 @@ const NavBar = () => {
           </a>
         </li>
         <li className="nav-link">
-          <a href="#education" className="font-medium hover:underline">
-            Education
+          <a href="#projects" className="font-medium hover:underline">
+            Projects
           </a>
         </li>
         <li className="nav-link">
-          <a href="#fun" className="font-medium hover:underline">
-            Fun
+          <a href="#education" className="font-medium hover:underline">
+            Education
           </a>
         </li>
       </ul>
