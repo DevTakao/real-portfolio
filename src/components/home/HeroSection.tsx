@@ -11,22 +11,22 @@ const HeroSection = () => {
           <div className="hero-title inline-block relative">
             <h1
               style={{ backgroundImage: `url(${Forest})`, backgroundClip: "text" }}
-              className="font-title leading-none text-[18vw] text-white group-hover:[color:transparent] transition-colors duration-1000 bg-cover bg-top px-4 relative z-[1] cursor-pointer"
+              className="font-title leading-none text-[25vw] md:text-[18vw] text-white group-hover:[color:transparent] transition-colors duration-1000 bg-cover bg-top px-4 relative z-[1] cursor-pointer"
             >
               Takao
             </h1>
-            <h1 className="font-title leading-none text-[18vw] [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 absolute z-0 top-0 left-0">
+            <h1 className="font-title leading-none text-[25vw] md:text-[18vw] [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 absolute z-0 top-0 left-0">
               Takao
             </h1>
           </div>
           <div className="hero-title inline-block relative">
             <h2
               style={{ backgroundImage: `url(${Forest})`, backgroundClip: "text" }}
-              className="font-title leading-none text-[5vw] text-white group-hover:[color:transparent] transition-colors duration-1000 bg-cover bg-center px-4 relative z-[1] cursor-pointer"
+              className="font-title leading-none text-[7vw] md:text-[5vw] text-white group-hover:[color:transparent] transition-colors duration-1000 bg-cover bg-center px-4 relative z-[1] cursor-pointer"
             >
               A Master Web Developer
             </h2>
-            <h2 className="text-[5vw] leading-none font-title [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 absolute z-0 top-0 left-0">
+            <h2 className="text-[7vw] md:text-[5vw] leading-none font-title [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 absolute z-0 top-0 left-0">
               A Master Web Developer
             </h2>
           </div>
