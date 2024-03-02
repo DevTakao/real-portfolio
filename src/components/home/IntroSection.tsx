@@ -2,8 +2,12 @@ import { BiSolidQuoteAltRight } from "react-icons/bi";
 
 const IntroSection = () => {
   return (
-    <section className="bg-green-dark py-12 md:py-24 text-center relative before:content-[''] before:w-full before:h-[5vh] before:bg-gradient-to-b before:from-[transparent] before:to-green-dark before:absolute before:z-[2] before:bottom-[100%] before:left-0">
-      <div className="max-w-screen-md mx-auto px-5">
+    <section
+      className="bg-green-dark py-12 md:py-24 text-center relative 
+    before:content-[''] before:w-full before:h-[5vh] before:bg-gradient-to-b before:from-[transparent] before:to-green-dark before:absolute before:z-[2] before:bottom-[100%] before:left-0 
+    after:content-[''] after:w-full after:h-[5vh] after:bg-gradient-to-t after:from-[transparent] after:to-green-dark after:absolute after:z-[2] after:top-[100%] after:left-0"
+    >
+      <div className="max-w-screen-md mx-auto px-5 relative z-[1]">
         <blockquote className="font-body text-sm md:text-[2vw] leading-normal relative">
           <span>
             <BiSolidQuoteAltRight className="absolute -top-7 -right-4 md:-top-[5vw] md:-right-[5vw] text-7xl md:text-[10vw] opacity-10" />
