@@ -26,7 +26,7 @@ const HeroSection = () => {
             >
               A Master Web Developer
             </h2>
-            <h2 className="text-[7vw] md:text-[5vw] leading-none font-title [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 absolute z-0 top-0 left-0">
+            <h2 className="text-[7vw] md:text-[5vw] leading-none font-title [adow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 absolute z-0 top-0 left-0">
               A Master Web Developer
             </h2>
           </div>

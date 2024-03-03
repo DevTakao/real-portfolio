@@ -11,7 +11,7 @@ const ExpBlock = ({ position, company, companyUrl, duration }: ExpBlockProps) =>
   return (
     <div className="exp-block flex flex-col leading-none py-3">
       <h4 className="text-base md:text-[2vw] font-semibold mb-2">{position}</h4>
-      <a href={companyUrl} target="_blank" referrerPolicy="no-referrer" className="text-sm flex items-center mb-1">
+      <a href={companyUrl} target="_blank" rel="noreferrer" className="text-sm flex items-center mb-1">
         <FaBuilding /> <span className="ml-1">{company}</span>
       </a>
       <time className="text-sm flex items-center">
