@@ -3,6 +3,31 @@ import { ReactNode } from "react";
 import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
 import { FaCss3Alt, FaHtml5, FaReact } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
+import { motion } from "framer-motion";
+
+const skillContainerVars = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+const skillBlockVars = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+    },
+  },
+};
 
 export type SkillBlockProps = {
   label: string;
@@ -10,12 +35,12 @@ export type SkillBlockProps = {
 };
 const SkillBlock = ({ label, children }: SkillBlockProps) => {
   return (
-    <div className="skill-block w-full flex flex-col items-center mx-3 mb-5">
+    <motion.div variants={skillBlockVars} className="skill-block w-full flex flex-col items-center mx-3 mb-5">
       <div className="text-[25vw] md:text-8xl flex items-center">{children}</div>
       <div className="flex items-center">
         <p className="font-body font-bold">{label}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -28,7 +53,13 @@ const SkillSection = () => {
       />
       <div className="relative z-[1] px-5 md:px-10 max-w-screen-md mx-auto">
         <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">Core Skills</h3>
-        <div className="flex [&>*]:w-1/4 flex-wrap justify-center">
+        <motion.div
+          variants={skillContainerVars}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="flex [&>*]:w-1/4 flex-wrap justify-center"
+        >
           <SkillBlock label="HTML">
             <FaHtml5 />
           </SkillBlock>
@@ -47,7 +78,7 @@ const SkillSection = () => {
           <SkillBlock label="Next.js">
             <TbBrandNextjs />
           </SkillBlock>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

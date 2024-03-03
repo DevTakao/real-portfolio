@@ -1,5 +1,19 @@
 import MountainView from "@/assets/images/mountainview.jpg";
 import { FaBuilding, FaClock } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const bgVars = {
+  initial: {
+    x: "100%",
+  },
+  animate: {
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: "linear",
+    },
+  },
+};
 
 export type ExpBlockProps = {
   position: string;
@@ -31,7 +45,13 @@ const ExpSection = () => {
     >
       <div className="opacity-50 absolute top-0 left-0 w-full h-full z-[0]" />
       <div className="max-w-screen-md mx-auto relative text-white font-body overflow-hidden">
-        <div className="absolute z-[0] w-full h-full bg-green-dark opacity-75 blur-lg" />
+        <motion.div
+          variants={bgVars}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="absolute z-[0] w-full h-full top-0 left-0 bg-green-dark opacity-75 blur-lg"
+        />
         <div className="relative z-[1] py-5 md:py-16 px-2">
           <h3 className="text-2xl md:text-[3vw] font-title mb-5 md:mb-10 text-center relative z-[1]">Experience</h3>
           <div className="experience-list flex flex-col text-left px-3 md:px-12">

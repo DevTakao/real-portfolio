@@ -1,17 +1,37 @@
 import Forest from "@/assets/images/forest.jpg";
 import ForestOverlay from "@/assets/images/forest-overlay.png";
+import { motion } from "framer-motion";
+
+const heroVars = {
+  initial: {
+    opacity: 0,
+    y: -20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 2,
+    },
+  },
+};
 
 const HeroSection = () => {
   return (
     <section className="hero-section relative">
       <img src={Forest} alt="forest" className="block w-full h-screen object-cover" />
 
-      <div className="hero-content absolute z-[1] top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+      <motion.div
+        variants={heroVars}
+        initial="initial"
+        animate="animate"
+        className="hero-content absolute z-[1] top-0 left-0 w-full h-full flex flex-col items-center justify-center"
+      >
         <div className="group text-center">
           <div className="hero-title inline-block relative">
             <h1
               style={{ backgroundImage: `url(${Forest})`, backgroundClip: "text" }}
-              className="font-title leading-none text-[25vw] md:text-[18vw] text-white group-hover:[color:transparent] transition-colors duration-1000 bg-cover bg-top px-4 relative z-[1] cursor-pointer"
+              className="font-title leading-none text-[25vw] md:text-[18vw] text-[transparent] group-hover:[color:white] transition-colors duration-1000 bg-cover bg-top px-4 relative z-[1] cursor-pointer"
             >
               Takao
             </h1>
@@ -22,7 +42,7 @@ const HeroSection = () => {
           <div className="hero-title inline-block relative">
             <h2
               style={{ backgroundImage: `url(${Forest})`, backgroundClip: "text" }}
-              className="font-title leading-none text-[7vw] md:text-[5vw] text-white group-hover:[color:transparent] transition-colors duration-1000 bg-cover bg-center px-4 relative z-[1] cursor-pointer"
+              className="font-title leading-none text-[7vw] md:text-[5vw] text-[transparent] group-hover:[color:white] transition-colors duration-1000 bg-cover bg-center px-4 relative z-[1] cursor-pointer"
             >
               A Master Web Developer
             </h2>
@@ -31,7 +51,7 @@ const HeroSection = () => {
             </h2>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <img
         src={ForestOverlay}

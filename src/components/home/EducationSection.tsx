@@ -2,6 +2,21 @@ import University from "@/assets/images/university.jpg";
 import Library from "@/assets/images/library.jpg";
 import Waterfall from "@/assets/images/waterfall.jpg";
 import { LuExternalLink } from "react-icons/lu";
+import { motion } from "framer-motion";
+
+const imgVars = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "linear",
+      delay: 0.25,
+    },
+  },
+};
 
 const EducationSection = () => {
   return (
@@ -17,10 +32,18 @@ const EducationSection = () => {
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-screen-lg mx-auto">
-          <div className="w-[90%] max-w-screen-sm mx-auto">
+          <div className="w-[90%] max-w-screen-sm mx-auto group/edu-card">
             <div className="relative w-full pt-[100%] mx-auto overflow-hidden shadow-lg">
-              <div className="absolute w-full h-full top-0 left-0">
-                <img src={Library} alt="library" className="absolute inset-0 object-cover" />
+              <div className="absolute w-full h-full top-0 left-0 bg-green-dark">
+                <motion.img
+                  variants={imgVars}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  src={Library}
+                  alt="library"
+                  className="absolute inset-0 object-cover group-hover/edu-card:scale-110 transition-transform duration-500"
+                />
               </div>
             </div>
             <div className="bg-bluegreen py-7 px-5 w-[90%] mx-auto relative -top-16 md:-top-32 left-0 text-center shadow-lg">
@@ -38,10 +61,18 @@ const EducationSection = () => {
             </div>
           </div>
 
-          <div className="w-[90%] max-w-screen-sm mx-auto">
+          <div className="w-[90%] max-w-screen-sm mx-auto group/edu-card">
             <div className="relative w-full pt-[100%] mx-auto overflow-hidden shadow-lg">
-              <div className="absolute w-full h-full top-0 left-0">
-                <img src={University} alt="university" className="absolute inset-0 object-cover" />
+              <div className="absolute w-full h-full top-0 left-0 bg-green-dark">
+                <motion.img
+                  variants={imgVars}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  src={University}
+                  alt="university"
+                  className="absolute inset-0 object-cover group-hover/edu-card:scale-110 transition-transform duration-500"
+                />
               </div>
             </div>
             <div className="bg-bluegreen py-7 px-5 w-[90%] mx-auto relative -top-16 md:-top-32 left-0 text-center shadow-lg">
@@ -64,7 +95,7 @@ const EducationSection = () => {
           I am very grateful to be exposed to great education since my childhood. There were many really inspiring
           teachers in my early life that I can remember. They are the foundation of my critical thinking, academic
           excellence and self-esteem. <br />
-          <strong className="mt-2 block">Thank you, my parents and my teachers.</strong>
+          <span className="mt-2 block">Thank you, my parents and my teachers.</span>
         </p>
       </div>
     </section>
