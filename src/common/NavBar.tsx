@@ -23,9 +23,12 @@ const NavBar = () => {
           </a>
         </li>
       </ul>
-      <button className="hidden md:inline-block border-2 border-white rounded-full py-[2vw] px-[6vw] md:py-2 md:px-6 hover:bg-white hover:text-green-dark transition-colors duration-500">
+      <a
+        href="#contact"
+        className="hidden md:inline-block border-2 border-white rounded-full py-[2vw] px-[6vw] md:py-2 md:px-6 hover:bg-white hover:text-green-dark hover:[text-shadow:none] transition-colors duration-500"
+      >
         Contact
-      </button>
+      </a>
     </nav>
   );
 };
