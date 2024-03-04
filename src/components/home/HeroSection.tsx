@@ -1,6 +1,7 @@
 import Forest from "@/assets/images/forest.jpg";
 import ForestOverlay from "@/assets/images/forest-overlay.png";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const heroVars = {
   initial: {
@@ -17,14 +18,19 @@ const heroVars = {
 };
 
 const HeroSection = () => {
+  const allImageCount = 2;
+  const [loadedImageCount, setLoadedImageCount] = useState(0);
+
+  const incrementLoadCount = () => setLoadedImageCount((prev) => prev + 1);
+
   return (
     <section className="hero-section relative">
-      <img src={Forest} alt="forest" className="block w-full h-screen object-cover" />
+      <img onLoad={incrementLoadCount} src={Forest} alt="forest" className="block w-full h-screen object-cover" />
 
       <motion.div
         variants={heroVars}
         initial="initial"
-        animate="animate"
+        animate={loadedImageCount === allImageCount ? "animate" : ""}
         className="hero-content absolute z-[1] top-0 left-0 w-full h-full flex flex-col items-center justify-center"
       >
         <div className="group text-center">
@@ -54,11 +60,14 @@ const HeroSection = () => {
       </motion.div>
 
       <img
+        onLoad={incrementLoadCount}
         src={ForestOverlay}
         alt="forest"
         className="overlay-image block w-full h-screen object-cover absolute z-[2] top-0 left-0 pointer-events-none"
       />
-      <div className="mask-overlay absolute z-[3] top-0 left-0 w-full h-full bg-green-dark [mask-image:radial-gradient(transparent_50%,black_80%)] pointer-events-none" />
+      {loadedImageCount === allImageCount && (
+        <div className="mask-overlay absolute z-[3] top-0 left-0 w-full h-full bg-green-dark [mask-image:radial-gradient(transparent_50%,black_80%)] pointer-events-none" />
+      )}
     </section>
   );
 };
