@@ -1,7 +1,7 @@
 import Forest from "@/assets/images/forest.jpg";
 import ForestOverlay from "@/assets/images/forest-overlay.png";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const heroVars = {
   initial: {
@@ -20,11 +20,26 @@ const heroVars = {
 const HeroSection = () => {
   const allImageCount = 2;
   const [loadedImageCount, setLoadedImageCount] = useState(0);
+  const [isDisguised, setIsDisguised] = useState(true);
 
   const incrementLoadCount = () => setLoadedImageCount((prev) => prev + 1);
 
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout | null = null;
+
+    if (loadedImageCount === allImageCount) {
+      intervalId = setInterval(() => {
+        setIsDisguised(!isDisguised);
+      }, 4000);
+    }
+
+    return () => {
+      intervalId && clearInterval(intervalId);
+    };
+  }, [loadedImageCount, isDisguised]);
+
   return (
-    <section className="hero-section relative">
+    <section className="hero-section relative overflow-hidden">
       <img onLoad={incrementLoadCount} src={Forest} alt="forest" className="block w-full h-screen object-cover" />
 
       <motion.div
@@ -36,8 +51,9 @@ const HeroSection = () => {
         <div className="group text-center">
           <div className="hero-title inline-block relative">
             <h1
+              data-disguised={isDisguised}
               style={{ backgroundImage: `url(${Forest})`, backgroundClip: "text" }}
-              className="font-title leading-none text-[25vw] md:text-[18vw] text-[transparent] group-hover:[color:white] transition-colors duration-1000 bg-cover bg-top px-4 relative z-[1] cursor-pointer"
+              className="font-title leading-none text-[25vw] md:text-[18vw] data-[disguised=true]:text-[transparent] data-[disguised=false]:[color:white] transition-colors duration-[5s] bg-cover bg-top px-4 relative z-[1] cursor-pointer"
             >
               Takao
             </h1>
@@ -47,8 +63,9 @@ const HeroSection = () => {
           </div>
           <div className="hero-title inline-block relative">
             <h2
+              data-disguised={isDisguised}
               style={{ backgroundImage: `url(${Forest})`, backgroundClip: "text" }}
-              className="font-title leading-none text-[7vw] md:text-[5vw] text-[transparent] group-hover:[color:white] transition-colors duration-1000 bg-cover bg-center px-4 relative z-[1] cursor-pointer"
+              className="font-title leading-none text-[7vw] md:text-[5vw] data-[disguised=true]:text-[transparent] data-[disguised=false]:[color:white] transition-colors duration-[5s] bg-cover bg-center px-4 relative z-[1] cursor-pointer"
             >
               A Master Web Developer
             </h2>
@@ -66,7 +83,10 @@ const HeroSection = () => {
         className="overlay-image block w-full h-screen object-cover absolute z-[2] top-0 left-0 pointer-events-none"
       />
       {loadedImageCount === allImageCount && (
-        <div className="mask-overlay absolute z-[3] top-0 left-0 w-full h-full bg-green-dark [mask-image:radial-gradient(transparent_50%,black_80%)] pointer-events-none" />
+        <div
+          data-disguised={isDisguised}
+          className="mask-overlay absolute z-[3] top-0 left-0 w-full h-full bg-green-dark [mask-image:radial-gradient(transparent_40%,black_80%)] data-[disguised=true]:scale-100 data-[disguised=false]:scale-150 transition-scale duration-[5s] pointer-events-none"
+        />
       )}
     </section>
   );
