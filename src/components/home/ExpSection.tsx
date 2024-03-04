@@ -15,6 +15,20 @@ const bgVars = {
   },
 };
 
+const contentVars = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "linear",
+      delay: 0.75,
+    },
+  },
+};
+
 export type ExpBlockProps = {
   position: string;
   company: string;
@@ -52,7 +66,13 @@ const ExpSection = () => {
           viewport={{ once: true }}
           className="absolute z-[0] w-full h-full top-0 left-0 bg-green-dark opacity-75 blur-lg"
         />
-        <div className="relative z-[1] py-5 md:py-16 px-2">
+        <motion.div
+          variants={contentVars}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="relative z-[1] py-5 md:py-16 px-2"
+        >
           <h3 className="text-2xl md:text-[3vw] font-title mb-5 md:mb-10 text-center relative z-[1]">Experience</h3>
           <div className="experience-list flex flex-col text-left px-3 md:px-12">
             <ExpBlock
@@ -68,7 +88,7 @@ const ExpSection = () => {
               duration="Mar 2022 - Jun 2023"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
