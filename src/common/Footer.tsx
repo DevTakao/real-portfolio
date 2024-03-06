@@ -1,5 +1,5 @@
 import { FaLinkedin, FaGithubSquare, FaFacebookSquare } from "react-icons/fa";
-import Bush from "@/assets/images/bush.png";
+import Bush from "@/assets/images/bush.avif";
 
 const Footer = () => {
   return (

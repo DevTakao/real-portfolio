@@ -1,4 +1,4 @@
-import Leaves from "@/assets/images/leaves.png";
+import Leaves from "@/assets/images/leaves.avif";
 import { CSSProperties, ReactNode } from "react";
 import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
 import { FaCss3Alt, FaHtml5, FaReact } from "react-icons/fa";
