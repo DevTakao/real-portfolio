@@ -16,6 +16,7 @@ const Footer = () => {
       />
       <div className="socials max-w-md mx-auto text-3xl md:text-[3vw] flex items-center justify-center mb-4 [&>a]:mr-2 [&>a:last]:mr-0">
         <a
+          aria-label="Visit Linkedin profile"
           href="https://www.linkedin.com/in/takao21/"
           target="_blank"
           rel="noreferrer"
@@ -24,6 +25,7 @@ const Footer = () => {
           <FaLinkedin />
         </a>
         <a
+          aria-label="Visit GitHub profile"
           href="https://github.com/DevTakao/"
           target="_blank"
           rel="noreferrer"
@@ -32,6 +34,7 @@ const Footer = () => {
           <FaGithubSquare />
         </a>
         <a
+          aria-label="Visit Facebook profile"
           href="https://www.facebook.com/joichiro.takao/"
           target="_blank"
           rel="noreferrer"
