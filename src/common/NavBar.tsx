@@ -1,6 +1,27 @@
 import classNames from "classnames";
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
+import LeafIcon from "@/assets/images/leaf-icon.svg";
+
+export type NavButtonProps = {
+  href: string;
+  label: string;
+};
+
+const NavButton = ({ href, label }: NavButtonProps) => {
+  return (
+    <li className="nav-link">
+      <a href={href} className="font-medium relative group">
+        <span className="relative z-[1]">{label}</span>
+        <span
+          style={{ "--bg-leaf": `url(${LeafIcon})` } as CSSProperties}
+          className="hidden md:block pointer-events-none absolute z-[0] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rotate-[-240deg] h-[250%] w-[3rem] object-contain [background-image:var(--bg-leaf)] bg-center bg-contain bg-no-repeat
+      opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-300"
+        />
+      </a>
+    </li>
+  );
+};
 
 const NavBar = () => {
   const [isShadowOn, setIsShadowOn] = useState(false);
@@ -19,26 +40,10 @@ const NavBar = () => {
     >
       <motion.div style={{ opacity: opacity }} className="absolute z-[0] top-0 left-0 w-full h-full bg-green-dark" />
       <ul className="relative z-[1] nav-links flex items-center justify-between w-full md:max-w-md">
-        <li className="nav-link">
-          <a href="#skills" className="font-medium hover:underline">
-            Skills
-          </a>
-        </li>
-        <li className="nav-link">
-          <a href="#experience" className="font-medium hover:underline">
-            Experience
-          </a>
-        </li>
-        <li className="nav-link">
-          <a href="#projects" className="font-medium hover:underline">
-            Projects
-          </a>
-        </li>
-        <li className="nav-link">
-          <a href="#education" className="font-medium hover:underline">
-            Education
-          </a>
-        </li>
+        <NavButton href="#skills" label="Skillsets" />
+        <NavButton href="#experience" label="Experience" />
+        <NavButton href="#projects" label="Projects" />
+        <NavButton href="#education" label="Education" />
       </ul>
       <a
         href="#contact"

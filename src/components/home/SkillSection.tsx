@@ -1,9 +1,10 @@
 import Leaves from "@/assets/images/leaves.png";
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
 import { FaCss3Alt, FaHtml5, FaReact } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
 import { motion } from "framer-motion";
+import LeafIcon from "@/assets/images/leaf-icon.svg";
 
 const skillContainerVars = {
   initial: {
@@ -52,7 +53,12 @@ const SkillSection = () => {
         className="absolute z-[0] w-full inset-y-0 bg-center bg-cover opacity-20"
       />
       <div className="relative z-[1] px-5 md:px-10 max-w-screen-md mx-auto">
-        <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">Core Skills</h3>
+        <h3
+          style={{ "--bg-leaf": `url(${LeafIcon})` } as CSSProperties}
+          className="text-2xl md:text-[3vw] font-title mb-14 text-center"
+        >
+          Core Skills
+        </h3>
         <motion.div
           variants={skillContainerVars}
           initial="initial"
