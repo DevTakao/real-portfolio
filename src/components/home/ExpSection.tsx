@@ -1,4 +1,4 @@
-import MountainView from "@/assets/images/mountainview.jpg";
+import MountainView from "@/assets/images/mountainview.webp";
 import { FaBuilding, FaClock } from "react-icons/fa";
 import { motion } from "framer-motion";
 

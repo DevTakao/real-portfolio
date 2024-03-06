@@ -1,4 +1,4 @@
-import Forest from "@/assets/images/forest.jpg";
+import Forest from "@/assets/images/forest.webp";
 import ForestOverlay from "@/assets/images/forest-overlay.png";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";

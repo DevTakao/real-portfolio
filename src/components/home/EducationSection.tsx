@@ -1,6 +1,6 @@
-import University from "@/assets/images/university.jpg";
-import Library from "@/assets/images/library.jpg";
-import Waterfall from "@/assets/images/waterfall.jpg";
+import University from "@/assets/images/university.webp";
+import Library from "@/assets/images/library.webp";
+import Waterfall from "@/assets/images/waterfall.webp";
 import { LuExternalLink } from "react-icons/lu";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
