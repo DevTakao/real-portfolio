@@ -53,11 +53,11 @@ const HeroSection = () => {
             <h1
               data-disguised={isDisguised}
               style={{ backgroundImage: `url(${Forest})`, backgroundClip: "text" }}
-              className="font-title leading-none text-[25vw] md:text-[18vw] data-[disguised=true]:text-[transparent] data-[disguised=false]:[color:white] transition-colors duration-[5s] bg-cover bg-top px-4 relative z-[1] cursor-pointer"
+              className="font-title leading-none text-[25vw] md:text-[18vw] data-[disguised=true]:text-[transparent] data-[disguised=false]:[color:white] px-4 pt-4 transition-colors duration-[5s] bg-cover bg-top px-4 relative z-[1] cursor-pointer"
             >
               Takao
             </h1>
-            <h1 className="font-title leading-none text-[25vw] md:text-[18vw] [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 absolute z-0 top-0 left-0">
+            <h1 className="font-title leading-none text-[25vw] md:text-[18vw] [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 pt-4 absolute z-0 top-0 left-0">
               Takao
             </h1>
           </div>
@@ -65,11 +65,11 @@ const HeroSection = () => {
             <h2
               data-disguised={isDisguised}
               style={{ backgroundImage: `url(${Forest})`, backgroundClip: "text" }}
-              className="font-title leading-none text-[7vw] md:text-[5vw] data-[disguised=true]:text-[transparent] data-[disguised=false]:[color:white] transition-colors duration-[5s] bg-cover bg-center px-4 relative z-[1] cursor-pointer"
+              className="font-title leading-none text-[7vw] md:text-[5vw] data-[disguised=true]:text-[transparent] data-[disguised=false]:[color:white] px-4 pt-4 transition-colors duration-[5s] bg-cover bg-center px-4 relative z-[1] cursor-pointer"
             >
               A Master Web Developer
             </h2>
-            <h2 className="text-[7vw] md:text-[5vw] leading-none font-title [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 absolute z-0 top-0 left-0">
+            <h2 className="text-[7vw] md:text-[5vw] leading-none font-title [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] [color:transparent] px-4 pt-4 absolute z-0 top-0 left-0">
               A Master Web Developer
             </h2>
           </div>
