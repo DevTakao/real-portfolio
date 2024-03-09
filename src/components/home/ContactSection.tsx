@@ -1,8 +1,10 @@
-import { FormEvent, useCallback } from "react";
+import { FormEvent, useCallback, useRef, useState } from "react";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const MessageForm = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const [apiStatus, setApiStatus] = useState("");
 
   const handleReCaptchaVerify = useCallback(
     async (formData: Record<string, unknown>) => {
@@ -43,9 +45,22 @@ const MessageForm = () => {
             }),
           }).then((res) => res.json());
           console.log("sendMessage res", res);
+
+          if (res.success) {
+            formRef.current && formRef.current.reset();
+            setApiStatus("Sent!");
+            setTimeout(() => {
+              setApiStatus("");
+            }, 3000);
+          } else {
+            setApiStatus("Send message failed. Please contact via social media.");
+          }
         } catch (error) {
           console.log(error);
+          setApiStatus("Unexpected error. Please contact via social media.");
         }
+      } else {
+        setApiStatus("Google reCAPTCHA failed. Please try again.");
       }
     },
     [executeRecaptcha]
@@ -53,6 +68,7 @@ const MessageForm = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    setApiStatus("Delivering message to Taka...");
     const obj: Record<string, unknown> = {};
 
     const formData = new FormData(e.target as HTMLFormElement);
@@ -63,7 +79,11 @@ const MessageForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-start w-[90%] max-w-screen-md mx-auto md:p-5">
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className="flex flex-col items-start w-[90%] max-w-screen-md mx-auto md:p-5"
+    >
       <label className="w-full grid grid-cols-12 my-5 font-body font-bold text-base sm:text-lg text-left">
         <span className="w-full leading-none flex items-center ml-5 mb-5 md:m-0 col-span-12 md:col-span-2 col-start-1">
           Your Name
@@ -105,6 +125,7 @@ const MessageForm = () => {
       >
         Send Message
       </button>
+      <p className="w-full pt-2 text-right text-sm font-body">{apiStatus}</p>
     </form>
   );
 };
