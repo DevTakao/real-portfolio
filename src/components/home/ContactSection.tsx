@@ -1,14 +1,7 @@
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-export type RecaptchaVerificationResponse = {
-  success: true | false;
-  challenge_ts: string; // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
-  hostname: string; // the hostname of the site where the reCAPTCHA was solved
-  "error-codes": unknown[]; // optional
-};
 const MessageForm = () => {
-  const recaptchaVerifyURL = "https://www.google.com/recaptcha/api/siteverify";
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [formValues, setFormValues] = useState({
     name: "",
@@ -23,17 +16,16 @@ const MessageForm = () => {
     }
 
     const token = await executeRecaptcha("yourAction");
-    const verifyRes: RecaptchaVerificationResponse = await fetch(recaptchaVerifyURL, {
+    const verifyRes = await fetch(import.meta.env.VITE_RECAPTCHA_VERIFY_URL, {
       method: "POST",
       body: JSON.stringify({
-        secret: import.meta.env.VITE_RECAPTCHA_SECRET_KEY,
-        response: token,
+        token: token,
       }),
     }).then((res) => res.json());
 
-    if (verifyRes.success) {
+    console.log("verified", verifyRes);
+    if (verifyRes.status === 200 && verifyRes.data.success) {
       console.log("recaptcha success");
-      alert("Feature in development");
     }
   }, [executeRecaptcha]);
 
