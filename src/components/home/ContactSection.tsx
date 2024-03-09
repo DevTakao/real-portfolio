@@ -1,13 +1,15 @@
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
+const initialFormValues = {
+  name: "",
+  email: "",
+  message: "",
+};
+
 const MessageForm = () => {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [formValues, setFormValues] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formValues, setFormValues] = useState(initialFormValues);
 
   const handleReCaptchaVerify = useCallback(async () => {
     if (!executeRecaptcha) {
@@ -15,7 +17,7 @@ const MessageForm = () => {
       return;
     }
 
-    const token = await executeRecaptcha("yourAction");
+    const token = await executeRecaptcha("sendMessage");
     const verifyRes = await fetch(import.meta.env.VITE_RECAPTCHA_VERIFY_URL, {
       method: "POST",
       headers: {
@@ -41,7 +43,6 @@ const MessageForm = () => {
     handleReCaptchaVerify();
     const formData = new FormData(e.target as HTMLFormElement);
     for (const [key, value] of formData.entries()) {
-      console.log(key, value);
       setFormValues({ ...formValues, [key]: value });
     }
   };
