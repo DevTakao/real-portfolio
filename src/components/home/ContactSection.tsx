@@ -18,6 +18,9 @@ const MessageForm = () => {
     const token = await executeRecaptcha("yourAction");
     const verifyRes = await fetch(import.meta.env.VITE_RECAPTCHA_VERIFY_URL, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         token: token,
       }),
