@@ -27,7 +27,7 @@ const MessageForm = () => {
     }).then((res) => res.json());
 
     console.log("verified", verifyRes);
-    if (verifyRes.status === 200 && verifyRes.data.success) {
+    if (verifyRes.success) {
       console.log("recaptcha success");
     }
   }, [executeRecaptcha]);
