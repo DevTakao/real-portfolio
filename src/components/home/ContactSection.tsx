@@ -30,9 +30,17 @@ const MessageForm = () => {
 
     console.log("verified", verifyRes);
     if (verifyRes.success) {
-      console.log("recaptcha success");
+      try {
+        const res = await fetch(
+          `https://docs.google.com/forms/d/e/1FAIpQLSdtUgei7ENIROrdKEYIEEyK95pdDZf_0HPDIjcHzeEr5avUyQ/formResponse?&submit=Submit?usp=pp_url&entry.1475997518=${formValues.name}&entry.1057062624=${formValues.email}&entry.1346876565=${formValues.message}`
+        ).then((res) => res.json());
+
+        console.log("res,", res);
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }, [executeRecaptcha]);
+  }, [executeRecaptcha, formValues]);
 
   useEffect(() => {
     handleReCaptchaVerify();
