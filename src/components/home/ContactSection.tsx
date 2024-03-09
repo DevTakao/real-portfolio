@@ -1,58 +1,65 @@
-import { FormEvent, useCallback, useEffect, useState } from "react";
+import { FormEvent, useCallback } from "react";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
-
-const initialFormValues = {
-  name: "",
-  email: "",
-  message: "",
-};
 
 const MessageForm = () => {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [formValues, setFormValues] = useState(initialFormValues);
 
-  const handleReCaptchaVerify = useCallback(async () => {
-    if (!executeRecaptcha) {
-      console.log("Execute recaptcha not yet available");
-      return;
-    }
-
-    const token = await executeRecaptcha("sendMessage");
-    const verifyRes = await fetch(import.meta.env.VITE_RECAPTCHA_VERIFY_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        token: token,
-      }),
-    }).then((res) => res.json());
-
-    console.log("verified", verifyRes);
-    if (verifyRes.success) {
-      try {
-        const res = await fetch(
-          `https://docs.google.com/forms/d/e/1FAIpQLSdtUgei7ENIROrdKEYIEEyK95pdDZf_0HPDIjcHzeEr5avUyQ/formResponse?&submit=Submit?usp=pp_url&entry.1475997518=${formValues.name}&entry.1057062624=${formValues.email}&entry.1346876565=${formValues.message}`
-        ).then((res) => res.json());
-
-        console.log("res,", res);
-      } catch (error) {
-        console.log(error);
+  const handleReCaptchaVerify = useCallback(
+    async (formData: Record<string, unknown>) => {
+      if (!executeRecaptcha) {
+        console.log("Execute recaptcha not yet available");
+        return;
       }
-    }
-  }, [executeRecaptcha, formValues]);
 
-  useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
+      const token = await executeRecaptcha("sendMessage");
+      const verifyRes = await fetch(import.meta.env.VITE_RECAPTCHA_VERIFY_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: token,
+        }),
+      }).then((res) => res.json());
+      console.log("verify res", verifyRes);
+
+      if (verifyRes.success) {
+        try {
+          const res = await fetch(import.meta.env.VITE_AIRTABLE_MESSAGE_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              records: [
+                {
+                  fields: {
+                    Name: formData.name,
+                    Email: formData.email,
+                    Message: formData.message,
+                  },
+                },
+              ],
+            }),
+          }).then((res) => res.json());
+          console.log("sendMessage res", res);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    },
+    [executeRecaptcha]
+  );
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    handleReCaptchaVerify();
+    const obj: Record<string, unknown> = {};
+
     const formData = new FormData(e.target as HTMLFormElement);
     for (const [key, value] of formData.entries()) {
-      setFormValues({ ...formValues, [key]: value });
+      obj[key] = value;
     }
+    handleReCaptchaVerify(obj);
   };
 
   return (
