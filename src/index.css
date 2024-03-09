@@ -24,3 +24,7 @@ body {
   color: #fefefe;
   overflow-x: hidden;
 }
+
+.grecaptcha-badge {
+  z-index: 10;
+}
