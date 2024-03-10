@@ -131,8 +131,9 @@ const MessageForm = () => {
         />
       </label>
       <button
+        disabled={isLoading}
         type="submit"
-        className="inline-flex items-center justify-between font-body font-semibold border border-white rounded-full py-[5vw] px-[7vw] md:py-4 md:px-7 hover:bg-white hover:text-green-dark transition-colors duration-500 ml-auto"
+        className="disabled:bg-green-light disabled:text-white disabled:cursor-progress inline-flex items-center justify-between font-body font-semibold border border-white rounded-full py-[5vw] px-[7vw] md:py-4 md:px-7 enabled:hover:bg-white enabled:hover:text-green-dark transition-colors duration-500 ml-auto"
       >
         <span className="min-w-[6rem] text-left">{isLoading ? "Sending..." : "Send Message"}</span>
         <div className="w-[1rem] h-[1rem] text-[1rem] ml-auto flex items-center justify-center">
