@@ -1,6 +1,7 @@
 import Loader from "@/common/Loader";
 import { FormEvent, useCallback, useRef, useState } from "react";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { BiCheck } from "react-icons/bi";
 import { FaAngleRight } from "react-icons/fa";
 
 const MessageForm = () => {
@@ -55,7 +56,7 @@ const MessageForm = () => {
 
           if (res.success) {
             formRef.current && formRef.current.reset();
-            setApiMessage("Sent!");
+            setApiMessage("Sent");
             setTimeout(() => {
               setApiMessage("");
             }, 3000);
@@ -138,7 +139,10 @@ const MessageForm = () => {
           {isLoading ? <Loader /> : <FaAngleRight />}
         </div>
       </button>
-      <p className="w-full pt-2 text-right text-sm font-body">{apiMessage}</p>
+      <p className="w-full pt-2 text-right text-sm font-body flex items-center justify-end pr-5">
+        <span className="mr-1">{apiMessage}</span>
+        {apiMessage === "Sent" ? <BiCheck /> : null}
+      </p>
     </form>
   );
 };
