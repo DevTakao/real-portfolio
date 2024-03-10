@@ -9,6 +9,7 @@ const MessageForm = () => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [justSent, setJustSent] = useState(false);
   const [apiMessage, setApiMessage] = useState("");
 
   const handleReCaptchaVerify = useCallback(
@@ -56,9 +57,9 @@ const MessageForm = () => {
 
           if (res.success) {
             formRef.current && formRef.current.reset();
-            setApiMessage("Sent");
+            setJustSent(true);
             setTimeout(() => {
-              setApiMessage("");
+              setJustSent(false);
             }, 3000);
           } else {
             setApiMessage("Send message failed. Please contact via social media.");
@@ -135,11 +136,9 @@ const MessageForm = () => {
         type="submit"
         className="disabled:bg-green-light disabled:text-white disabled:cursor-progress inline-flex items-center justify-between font-body font-semibold border border-white rounded-full py-[5vw] px-[7vw] md:py-4 md:px-7 enabled:hover:bg-white enabled:hover:text-green-dark transition-colors duration-500 ml-auto"
       >
-        <span className="min-w-[6rem] text-left">
-          {isLoading ? "Sending..." : apiMessage === "Sent" ? "Sent" : "Send Message"}
-        </span>
+        <span className="min-w-[6rem] text-left">{isLoading ? "Sending..." : justSent ? "Sent" : "Send Message"}</span>
         <div className="w-[1rem] h-[1rem] text-[1rem] ml-auto flex items-center justify-center">
-          {isLoading ? <Loader /> : apiMessage === "Sent" ? <BiCheck /> : <FaAngleRight />}
+          {isLoading ? <Loader /> : justSent ? <BiCheck /> : <FaAngleRight />}
         </div>
       </button>
       <p className="w-full pt-2 text-right text-sm font-body flex items-center justify-end pr-5">
