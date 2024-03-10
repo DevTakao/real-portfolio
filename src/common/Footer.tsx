@@ -4,8 +4,8 @@ import Bush from "@/assets/images/bush.avif";
 const Footer = () => {
   return (
     <footer
-      className="Footer bg-green-dark pt-[10vh] pb-[10vh] sm:pb-[5vh] px-6 text-base font-body bg-light text-center relative 
-    before:content-[''] before:w-full before:h-[5vh] before:bg-gradient-to-b before:from-[transparent] before:to-green-dark before:absolute before:z-[2] before:bottom-[100%] before:left-0 
+      className="Footer bg-gradient-to-b from-green-light to-green-dark pt-[10vh] pb-[10vh] sm:pb-[5vh] px-6 text-base font-body bg-light text-center relative 
+    before:content-[''] before:w-full before:h-[5vh] before:bg-gradient-to-b before:from-[transparent] before:to-green-light before:absolute before:z-[2] before:bottom-[100%] before:left-0 
     "
     >
       <img

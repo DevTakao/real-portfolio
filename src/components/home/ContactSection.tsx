@@ -152,8 +152,8 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative text-center bg-gradient-to-b from-green-light to-green-dark py-12 md:py-24
-    before:content-[''] before:w-full before:h-[5vh] before:bg-gradient-to-b before:from-[transparent] before:to-green-light before:absolute before:z-[2] before:bottom-[100%] before:left-0"
+      className="relative text-center bg-gradient-to-b from-green-dark to-green-light py-12 md:py-24
+    before:content-[''] before:w-full before:h-[5vh] before:bg-gradient-to-b before:from-[transparent] before:to-green-dark before:absolute before:z-[2] before:bottom-[100%] before:left-0"
     >
       <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">Send Me A Message</h3>
       <GoogleReCaptchaProvider reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}>
