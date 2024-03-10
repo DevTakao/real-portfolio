@@ -1,13 +1,22 @@
+import Loader from "@/common/Loader";
 import { FormEvent, useCallback, useRef, useState } from "react";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { FaAngleRight } from "react-icons/fa";
 
 const MessageForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [apiStatus, setApiStatus] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiMessage, setApiMessage] = useState("");
 
   const handleReCaptchaVerify = useCallback(
     async (formData: Record<string, unknown>) => {
+      const isDevMode = import.meta.env.MODE === "development";
+      if (isDevMode) {
+        console.log("Disabled reCAPTCHA in development mode");
+      }
+
       if (!executeRecaptcha) {
         console.log("Execute recaptcha not yet available");
         return;
@@ -23,9 +32,8 @@ const MessageForm = () => {
           token: token,
         }),
       }).then((res) => res.json());
-      console.log("verify res", verifyRes);
 
-      if (verifyRes.success) {
+      if (verifyRes.success || isDevMode) {
         try {
           const res = await fetch(import.meta.env.VITE_AIRTABLE_MESSAGE_URL, {
             method: "POST",
@@ -44,31 +52,33 @@ const MessageForm = () => {
               ],
             }),
           }).then((res) => res.json());
-          console.log("sendMessage res", res);
 
           if (res.success) {
             formRef.current && formRef.current.reset();
-            setApiStatus("Sent!");
+            setApiMessage("Sent!");
             setTimeout(() => {
-              setApiStatus("");
+              setApiMessage("");
             }, 3000);
           } else {
-            setApiStatus("Send message failed. Please contact via social media.");
+            setApiMessage("Send message failed. Please contact via social media.");
           }
         } catch (error) {
           console.log(error);
-          setApiStatus("Unexpected error. Please contact via social media.");
+          setApiMessage("Unexpected error. Please contact via social media.");
         }
       } else {
-        setApiStatus("Google reCAPTCHA failed. Please try again.");
+        setApiMessage("Google reCAPTCHA failed. Please try again.");
       }
+      setIsLoading(false);
     },
     [executeRecaptcha]
   );
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setApiStatus("Delivering message to Taka...");
+    setIsLoading(true);
+    setApiMessage("");
+
     const obj: Record<string, unknown> = {};
 
     const formData = new FormData(e.target as HTMLFormElement);
@@ -121,11 +131,14 @@ const MessageForm = () => {
       </label>
       <button
         type="submit"
-        className="inline-block font-body font-semibold border border-white rounded-full py-[5vw] px-[7vw] md:py-4 md:px-7 hover:bg-white hover:text-green-dark transition-colors duration-500 ml-auto"
+        className="inline-flex items-center justify-between font-body font-semibold border border-white rounded-full py-[5vw] px-[7vw] md:py-4 md:px-7 hover:bg-white hover:text-green-dark transition-colors duration-500 ml-auto"
       >
-        Send Message
+        <span className="min-w-[6rem] text-left">{isLoading ? "Sending..." : "Send Message"}</span>
+        <div className="w-[1rem] h-[1rem] text-[1rem] ml-auto flex items-center justify-center">
+          {isLoading ? <Loader /> : <FaAngleRight />}
+        </div>
       </button>
-      <p className="w-full pt-2 text-right text-sm font-body">{apiStatus}</p>
+      <p className="w-full pt-2 text-right text-sm font-body">{apiMessage}</p>
     </form>
   );
 };
