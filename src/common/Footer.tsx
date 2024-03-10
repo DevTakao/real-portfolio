@@ -13,7 +13,7 @@ const Footer = () => {
         alt="bush"
         className="absolute max-w-[25vw] z-[2] object-contain bottom-0 left-0 pointer-events-none"
       />
-      <div className="socials max-w-md mx-auto text-3xl md:text-[3vw] flex items-center justify-center mb-4 [&>a]:mr-2 [&>a:last]:mr-0">
+      <div className="socials max-w-md mx-auto text-4xl md:text-[3vw] flex items-center justify-center mb-10 [&>a]:mr-2 [&>a:last]:mr-0">
         <a
           aria-label="Visit Linkedin profile"
           href="https://www.linkedin.com/in/takao21/"
@@ -42,7 +42,15 @@ const Footer = () => {
           <FaFacebookSquare />
         </a>
       </div>
-      Portfolio, Aung Kaung Khant, 2024
+      <p>Portfolio, Aung Kaung Khant, 2024</p>
+      <a
+        href="https://github.com/DevTakao/real-portfolio"
+        target="_blank"
+        rel="noreferrer"
+        className="text-xs underline block my-5"
+      >
+        View Source Code
+      </a>
     </footer>
   );
 };
