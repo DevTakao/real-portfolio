@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 const projectVars = {
   initial: {
-    opacity: 0.1,
+    opacity: 0,
   },
   animate: {
     opacity: 1,
