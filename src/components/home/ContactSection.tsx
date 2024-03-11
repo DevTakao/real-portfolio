@@ -1,6 +1,6 @@
 import Loader from "@/common/Loader";
 import { FormEvent, useCallback, useRef, useState } from "react";
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { BiCheck } from "react-icons/bi";
 import { FaAngleRight } from "react-icons/fa";
 
@@ -156,9 +156,7 @@ const ContactSection = () => {
     before:content-[''] before:w-full before:h-[5vh] before:bg-gradient-to-b before:from-[transparent] before:to-green-dark before:absolute before:z-[2] before:bottom-[100%] before:left-0"
     >
       <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">Send Me A Message</h3>
-      <GoogleReCaptchaProvider reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}>
-        <MessageForm />
-      </GoogleReCaptchaProvider>
+      <MessageForm />
     </section>
   );
 };
