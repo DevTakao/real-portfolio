@@ -70,7 +70,6 @@ const ExpSection = () => {
           variants={contentVars}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true }}
           className="relative z-[1] py-5 md:py-16 px-2"
         >
           <h3 className="text-2xl md:text-[3vw] font-title mb-5 md:mb-10 text-center relative z-[1]">Experience</h3>
@@ -85,7 +84,13 @@ const ExpSection = () => {
               position="Front-End Team Lead"
               company="Nexstack, Singapore"
               companyUrl="https://nexstack.sg/"
-              duration="Mar 2022 - Jun 2023"
+              duration="Aug 2022 - Jun 2023"
+            />
+            <ExpBlock
+              position="React Front-End Developer"
+              company="Nexstack, Singapore"
+              companyUrl="https://nexstack.sg/"
+              duration="Mar 2022 - Aug 2022"
             />
           </div>
         </motion.div>
