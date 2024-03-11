@@ -6,6 +6,20 @@ import { GiRollingEnergy, GiTrade } from "react-icons/gi";
 import { GrDashboard } from "react-icons/gr";
 import { IoPhonePortrait } from "react-icons/io5";
 import { TbApi } from "react-icons/tb";
+import { motion } from "framer-motion";
+
+const projectVars = {
+  initial: {
+    opacity: 0.1,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      delay: 0.2,
+    },
+  },
+};
 
 export type ProjectBlockProps = {
   title: string;
@@ -14,11 +28,16 @@ export type ProjectBlockProps = {
 };
 const ProjectBlock = ({ title, body, children }: ProjectBlockProps) => {
   return (
-    <div className="project border-2 border-white rounded-lg p-5 md:p-7 text-center leading-normal hover:bg-white hover:text-green-dark hover:cursor-pointer transition-colors duration-500">
+    <motion.div
+      variants={projectVars}
+      initial="initial"
+      whileInView="animate"
+      className="project border-2 border-white rounded-lg p-5 md:p-7 text-center leading-normal hover:bg-white hover:text-green-dark hover:cursor-pointer transition-colors duration-500"
+    >
       <div className="text-[10vw] md:text-[7vw] flex flex-col items-center mb-5">{children}</div>
       <h3 className="text-lg md:text-[2vw] font-semibold font-title my-4">{title}</h3>
       <p className="text-sm md:text-[1.2vw] font-body">{body}</p>
-    </div>
+    </motion.div>
   );
 };
 
@@ -73,6 +92,9 @@ const ProjectSection = () => {
           <IoPhonePortrait />
         </ProjectBlock>
       </div>
+      <p className="font-body text-sm text-center max-w-screen-md mx-auto mt-10 px-2">
+        *Sources are not included due to NDA*
+      </p>
     </section>
   );
 };
