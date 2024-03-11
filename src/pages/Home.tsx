@@ -8,7 +8,7 @@ import SkillSection from "@/components/home/SkillSection";
 
 const Home = () => {
   return (
-    <>
+    <main className="overflow-x-hidden">
       <HeroSection />
       <IntroSection />
       <SkillSection />
@@ -16,7 +16,7 @@ const Home = () => {
       <ProjectSection />
       <EducationSection />
       <ContactSection />
-    </>
+    </main>
   );
 };
 
