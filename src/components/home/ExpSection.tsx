@@ -37,15 +37,18 @@ export type ExpBlockProps = {
 };
 const ExpBlock = ({ position, company, companyUrl, duration }: ExpBlockProps) => {
   return (
-    <div className="exp-block flex flex-col leading-none py-3">
+    <div className="exp-block flex flex-col leading-none py-3 mb-5">
       <h4 className="text-base md:text-[2vw] font-semibold mb-2">{position}</h4>
-      <a href={companyUrl} target="_blank" rel="noreferrer" className="text-sm flex items-center mb-1">
-        <FaBuilding /> <span className="ml-1">{company}</span>
-      </a>
-      <time className="text-sm flex items-center">
-        <FaClock />
-        <span className="ml-1">{duration}</span>
-      </time>
+      <hr className="opacity-75 mb-2" />
+      <div className="px-2">
+        <a href={companyUrl} target="_blank" rel="noreferrer" className="text-sm flex items-center mb-1">
+          <FaBuilding /> <span className="ml-1">{company}</span>
+        </a>
+        <time className="text-sm flex items-center">
+          <FaClock />
+          <span className="ml-1">{duration}</span>
+        </time>
+      </div>
     </div>
   );
 };

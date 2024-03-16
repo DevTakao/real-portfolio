@@ -40,14 +40,14 @@ const NavBar = () => {
     >
       <motion.div style={{ opacity: opacity }} className="absolute z-[0] top-0 left-0 w-full h-full bg-green-dark" />
       <ul className="relative z-[1] nav-links flex items-center justify-between w-full md:max-w-md">
-        <NavButton href="#skills" label="Skillsets" />
+        <NavButton href="#skills" label="Skills" />
         <NavButton href="#experience" label="Experience" />
         <NavButton href="#projects" label="Projects" />
         <NavButton href="#education" label="Education" />
       </ul>
       <a
         href="#contact"
-        className="relative z-[1] hidden md:inline-block border-2 border-white rounded-full py-[2vw] px-[6vw] md:py-2 md:px-6 hover:bg-white hover:text-green-dark hover:[text-shadow:none] transition-colors duration-500"
+        className="relative z-[1] hidden md:inline-block border-2 border-white rounded-full py-[2vw] px-[6vw] md:py-2 md:px-6 hover:bg-white hover:text-green-dark [text-shadow:none] transition-colors duration-500"
       >
         Contact
       </a>
