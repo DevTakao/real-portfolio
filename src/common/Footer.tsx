@@ -1,5 +1,6 @@
 import { FaLinkedin, FaGithubSquare, FaFacebookSquare } from "react-icons/fa";
 import Bush from "@/assets/images/bush.avif";
+import { HiArrowLongRight } from "react-icons/hi2";
 
 const Footer = () => {
   return (
@@ -19,7 +20,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/takao21/"
           target="_blank"
           rel="noreferrer"
-          className="text-dark hover:text-blue transition-all duration-300"
+          className="text-dark hover:text-blue transition-all duration-300 hover:-translate-y-1 hover:[box-shadow:0px_4px_12px_0px_rgba(0,0,0,0.5)]"
         >
           <FaLinkedin />
         </a>
@@ -28,7 +29,7 @@ const Footer = () => {
           href="https://github.com/DevTakao/"
           target="_blank"
           rel="noreferrer"
-          className="text-dark hover:text-blue transition-all duration-300"
+          className="text-dark hover:text-blue transition-all duration-300 hover:-translate-y-1 hover:[box-shadow:0px_4px_12px_0px_rgba(0,0,0,0.5)]"
         >
           <FaGithubSquare />
         </a>
@@ -37,19 +38,20 @@ const Footer = () => {
           href="https://www.facebook.com/joichiro.takao/"
           target="_blank"
           rel="noreferrer"
-          className="text-dark hover:text-blue transition-all duration-300"
+          className="text-dark hover:text-blue transition-all duration-300 hover:-translate-y-1 hover:[box-shadow:0px_4px_12px_0px_rgba(0,0,0,0.5)]"
         >
           <FaFacebookSquare />
         </a>
       </div>
-      <p>Portfolio, Aung Kaung Khant, 2024</p>
+      <p className="mb-10">Portfolio, Aung Kaung Khant, 2024</p>
       <a
         href="https://github.com/DevTakao/real-portfolio"
         target="_blank"
         rel="noreferrer"
-        className="text-xs underline block my-5"
+        className="text-xs flex items-center justify-center group"
       >
-        View Source Code
+        <span className="font-bold mr-1">View Source Code</span>{" "}
+        <HiArrowLongRight size="16" className="group-hover:translate-x-[5px] transition-transform duration-300" />
       </a>
     </footer>
   );
