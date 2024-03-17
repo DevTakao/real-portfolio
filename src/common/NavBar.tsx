@@ -41,7 +41,7 @@ const NavBar = () => {
       <motion.div style={{ opacity: opacity }} className="absolute z-[0] top-0 left-0 w-full h-full bg-green-dark" />
       <ul className="relative z-[1] nav-links flex items-center justify-between w-full md:max-w-md">
         <NavButton href="#skills" label="Skills" />
-        <NavButton href="#experience" label="Experience" />
+        <NavButton href="#career" label="Career" />
         <NavButton href="#projects" label="Projects" />
         <NavButton href="#education" label="Education" />
       </ul>
