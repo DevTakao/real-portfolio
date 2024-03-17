@@ -11,10 +11,10 @@ export default {
         white: "#fefefe",
         black: "#1f1f1f",
       },
-    },
-    fontFamily: {
-      title: ["ElsieSwashCaps", "serif"],
-      body: ["Ruluko", "sans-serif"],
+      fontFamily: {
+        title: ["ElsieSwashCaps", "serif"],
+        body: ["Ruluko", "sans-serif"],
+      },
     },
   },
   plugins: [],

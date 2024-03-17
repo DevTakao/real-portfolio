@@ -42,7 +42,7 @@ const ProjectBlock = ({ title, body, tags, children }: ProjectBlockProps) => {
         {tags.map((tag: string, i: number) => (
           <li
             key={i}
-            className="text-white py-1 px-2 rounded-full border border-white inline-block mr-2 mb-2 group-hover:border-green-dark group-hover:text-green-dark transition-colors duration-400"
+            className="text-white font-mono py-1 px-2 rounded-full border border-white inline-block mr-2 mb-2 group-hover:border-green-dark group-hover:text-green-dark transition-colors duration-400"
           >
             {tag}
           </li>
