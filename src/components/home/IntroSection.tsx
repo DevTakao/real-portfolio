@@ -1,5 +1,5 @@
 import { ReactNode, useRef } from "react";
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export type IntroBlockProps = {
   oppositeDirection?: boolean;
@@ -9,10 +9,6 @@ export type IntroBlockProps = {
 const IntroBlock = ({ oppositeDirection = false, children }: IntroBlockProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "start 50px"] });
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest);
-  });
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
   const x = useTransform(scrollYProgress, [0, 0.25], [oppositeDirection ? 50 : -50, 0]);
