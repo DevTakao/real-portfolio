@@ -43,7 +43,7 @@ const iconVars = {
   },
 };
 
-const IntroSection = () => {
+const QuoteSection = () => {
   return (
     <section
       className="bg-green-dark py-12 md:py-24 text-center relative 
@@ -77,4 +77,4 @@ const IntroSection = () => {
   );
 };
 
-export default IntroSection;
+export default QuoteSection;
