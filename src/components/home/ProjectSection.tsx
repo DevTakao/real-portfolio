@@ -58,39 +58,11 @@ const ProjectSection = () => {
       <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">Projects Finished</h3>
       <div className="projects-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[90%] mx-auto md:px-5">
         <ProjectBlock
-          title="Chrome Extension"
-          body="Useful chrome extensions with the modern Manifest V3 API."
-          tags={["Manifest V3", "TypeScript", "Tailwind", "Extension"]}
-        >
-          <FaChrome />
-        </ProjectBlock>
-        <ProjectBlock
-          title="PDF Maker"
-          body="Customers can modify and download their data in PDF formats."
-          tags={["React", "TypeScript", "TailwindCSS", "Node"]}
-        >
-          <FaFilePdf />
-        </ProjectBlock>
-        <ProjectBlock
-          title="QR Code Generator"
-          body="Dynamically generate QR Codes and provide output in various media formats."
-          tags={["Pixi", "React", "TypeScript"]}
-        >
-          <FaQrcode />
-        </ProjectBlock>
-        <ProjectBlock
-          title="CMS Dashboard"
+          title="CMS Dashboards"
           body="Fast and user-friendly e-commerce and administration dashboards."
-          tags={["Vue 3", "Nuxt", "AWS Lambda", "Pug.js", "Node"]}
+          tags={["Next.js", "Reactstrap", "Vue 3", "Nuxt", "AWS Lambda", "Pug.js", "Node"]}
         >
           <GrDashboard />
-        </ProjectBlock>
-        <ProjectBlock
-          title="Migration"
-          body="Migrating an existing system with important data from outdated technology stacks to modern blazing fast and secure ones, with little to no loss of data."
-          tags={["Node", "MongoDB", "Mongoose", "AWS Lambda"]}
-        >
-          <TbApi />
         </ProjectBlock>
         <ProjectBlock
           title="Merchant Portal"
@@ -119,6 +91,34 @@ const ProjectSection = () => {
           tags={["HTML", "CSS", "JavaScript", "AnimeJS"]}
         >
           <IoPhonePortrait />
+        </ProjectBlock>
+        <ProjectBlock
+          title="Chrome Extension"
+          body="Useful chrome extensions with the modern Manifest V3 API."
+          tags={["Manifest V3", "TypeScript", "Tailwind", "Extension"]}
+        >
+          <FaChrome />
+        </ProjectBlock>
+        <ProjectBlock
+          title="PDF Maker"
+          body="Customers can modify and download their data in PDF formats."
+          tags={["React", "TypeScript", "TailwindCSS", "Node"]}
+        >
+          <FaFilePdf />
+        </ProjectBlock>
+        <ProjectBlock
+          title="QR Code Generator"
+          body="Dynamically generate QR Codes and provide output in various media formats."
+          tags={["Pixi", "React", "TypeScript"]}
+        >
+          <FaQrcode />
+        </ProjectBlock>
+        <ProjectBlock
+          title="Migration"
+          body="Migrating an existing system with important data from outdated technology stacks to modern blazing fast and secure ones, with little to no loss of data."
+          tags={["Node", "MongoDB", "Mongoose", "AWS Lambda"]}
+        >
+          <TbApi />
         </ProjectBlock>
       </div>
       <p className="font-body text-sm text-center max-w-screen-md mx-auto mt-10 px-2">
