@@ -5,12 +5,14 @@ import HeroSection from "@/components/home/HeroSection";
 import QuoteSection from "@/components/home/QuoteSection";
 import ProjectSection from "@/components/home/ProjectSection";
 import SkillSection from "@/components/home/SkillSection";
+import IntroSection from "@/components/home/IntroSection";
 
 const Home = () => {
   return (
     <main className="overflow-x-hidden">
       <HeroSection />
       <QuoteSection />
+      <IntroSection />
       <SkillSection />
       <ExpSection />
       <ProjectSection />
