@@ -148,12 +148,12 @@ const ExpSection = () => {
                       <br />
                       <br />I started applying for jobs after finishing the Course. It didn't take more than two months
                       for me to land my first job at a Singaporean start-up as a remote React Developer.
-                      <button onClick={() => setIsExpanded(false)} className="font-bold text-white/50 ml-1">
+                      <button onClick={() => setIsExpanded(false)} className="font-bold uppercase text-white/50 ml-1">
                         ...Read Less
                       </button>
                     </motion.span>
                   ) : (
-                    <button onClick={() => setIsExpanded(true)} className="font-bold text-white/50 ml-1">
+                    <button onClick={() => setIsExpanded(true)} className="font-bold uppercase text-white/50 ml-1">
                       ...Read More
                     </button>
                   )}
