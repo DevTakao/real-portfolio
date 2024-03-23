@@ -4,6 +4,7 @@ import Waterfall from "@/assets/images/waterfall.webp";
 import { LuExternalLink } from "react-icons/lu";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import FadeInBlock from "@/common/FadeInBlock";
 
 const imgVars = {
   initial: {
@@ -96,12 +97,14 @@ const EducationSection = () => {
           />
         </div>
 
-        <p className="font-body w-[90%] max-w-screen-md mx-auto text-justify [text-align-last:center] px-5 [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] border-2 border-white p-5">
-          I am very grateful to be exposed to great education since my childhood. There were many really inspiring
-          teachers in my early life that I can remember. They are the foundation of my critical thinking, academic
-          excellence and self-esteem. <br />
-          <span className="mt-2 block">Thank you, my parents and my teachers.</span>
-        </p>
+        <FadeInBlock>
+          <p className="font-body w-[90%] max-w-screen-md mx-auto text-justify [text-align-last:center] px-5 [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] border-2 border-white p-5">
+            I am very grateful to be exposed to great education since my childhood. There were many really inspiring
+            teachers in my early life that I can remember. They are the foundation of my critical thinking, academic
+            excellence and self-esteem. <br />
+            <span className="mt-2 block">Thank you, my parents and my teachers.</span>
+          </p>
+        </FadeInBlock>
       </div>
     </section>
   );

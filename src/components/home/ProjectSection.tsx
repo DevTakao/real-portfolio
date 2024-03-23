@@ -6,20 +6,7 @@ import { GiRollingEnergy, GiTrade } from "react-icons/gi";
 import { GrDashboard } from "react-icons/gr";
 import { IoPhonePortrait } from "react-icons/io5";
 import { TbApi } from "react-icons/tb";
-import { motion } from "framer-motion";
-
-const projectVars = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      delay: 0.2,
-    },
-  },
-};
+import FadeInBlock from "@/common/FadeInBlock";
 
 export type ProjectBlockProps = {
   title: string;
@@ -27,28 +14,26 @@ export type ProjectBlockProps = {
   tags: string[];
   children: ReactNode;
 };
+
 const ProjectBlock = ({ title, body, tags, children }: ProjectBlockProps) => {
   return (
-    <motion.div
-      variants={projectVars}
-      initial="initial"
-      whileInView="animate"
-      className="project group min-h-[250px] md:min-h-[400px] flex flex-col border-2 border-white rounded-lg p-5 md:p-7 text-center leading-normal hover:bg-white hover:text-green-dark hover:cursor-pointer transition-colors duration-500"
-    >
-      <div className="text-[10vw] md:text-[7vw] flex flex-col items-center mb-5">{children}</div>
-      <h3 className="text-lg md:text-[2vw] font-semibold font-title my-4">{title}</h3>
-      <p className="text-sm md:text-[1.2vw] font-body mb-5 flex-grow">{body}</p>
-      <ul className="text-xs flex flex-wrap items-center py-2">
-        {tags.map((tag: string, i: number) => (
-          <li
-            key={i}
-            className="text-white font-mono py-1 px-2 rounded-full border border-white inline-block mr-2 mb-2 group-hover:border-green-dark group-hover:text-green-dark transition-colors duration-400"
-          >
-            {tag}
-          </li>
-        ))}
-      </ul>
-    </motion.div>
+    <FadeInBlock>
+      <div className="project group h-full min-h-[250px] md:min-h-[400px] flex flex-col border-2 border-white rounded-lg p-5 md:p-7 text-center leading-normal hover:bg-white hover:text-green-dark hover:cursor-pointer transition-colors duration-500">
+        <div className="text-[10vw] md:text-[7vw] flex flex-col items-center mb-5">{children}</div>
+        <h3 className="text-lg md:text-[2vw] font-semibold font-title my-4">{title}</h3>
+        <p className="text-sm md:text-[1.2vw] font-body mb-5 flex-grow">{body}</p>
+        <ul className="text-xs flex flex-wrap items-center py-2">
+          {tags.map((tag: string, i: number) => (
+            <li
+              key={i}
+              className="text-white font-mono py-1 px-2 rounded-full border border-white inline-block mr-2 mb-2 group-hover:border-green-dark group-hover:text-green-dark transition-colors duration-400"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </FadeInBlock>
   );
 };
 
