@@ -61,7 +61,7 @@ const MobileNav = () => {
     <>
       <a
         href="#home"
-        className="inline-flex sm:hidden font-title fixed z-[11] top-4 left-0 text-2xl pl-5 items-center"
+        className="inline-flex sm:hidden font-title fixed z-[11] top-3 left-0 text-2xl pl-5 items-center"
         aria-label="Home"
       >
         <img src="/favicon.png" alt="taka" width={44} className="mr-2 rounded-full bg-green-dark" />
