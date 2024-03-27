@@ -24,6 +24,7 @@ const NavButton = ({ href, label, handleClick }: NavButtonProps) => {
       className="nav-link block w-full relative mb-[7.5vh] font-title border-l-[3px] border-b-[3px] border-whitegreen px-5 pt-1 pb-4"
     >
       <a
+        aria-label={label}
         href={href}
         className="block leading-none w-full h-full text-2xl font-medium active:translate-x-5 transition-all duration-300"
       >
@@ -38,9 +39,10 @@ const MobileNav = () => {
   return (
     <>
       <button
+        aria-label="Menu"
         data-open={isOpen}
         onClick={() => setIsOpen(!isOpen)}
-        className="block sm:hidden fixed top-2 right-2 z-[11] p-1 bg-[#000]/50 rounded-lg data-[open=true]:-scale-100 transition-all duration-500"
+        className="menu-button block sm:hidden fixed top-2 right-2 z-[11] p-1 bg-[#000]/50 rounded-lg data-[open=true]:-scale-100 transition-all duration-500"
       >
         <CgMenuRight size={35} />
       </button>
