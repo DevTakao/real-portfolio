@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CgMenuRight } from "react-icons/cg";
 
@@ -36,6 +36,25 @@ const NavButton = ({ href, label, handleClick }: NavButtonProps) => {
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      const { matches: isTabletOrLarger } = window.matchMedia("(min-width: 640px)");
+      if (isTabletOrLarger) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("resize", resizeHandler);
+  }, []);
+
   return (
     <>
       <button
