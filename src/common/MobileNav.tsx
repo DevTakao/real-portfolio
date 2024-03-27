@@ -38,6 +38,7 @@ const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const scale = useTransform(scrollY, [500, 100], [0.75, 1], { clamp: true });
+  const opacity = useTransform(scrollY, [500, 100], [isOpen ? 1 : 0.25, 1], { clamp: true });
 
   useEffect(() => {
     if (isOpen) {
@@ -65,7 +66,7 @@ const MobileNav = () => {
         aria-label="Home"
       >
         <img src="/favicon.png" alt="taka" width={44} className="mr-2 rounded-full bg-green-dark" />
-        <motion.span style={{ scale }} className="[text-shadow:0px_-5px_10px_rgba(0,0,0,1)] origin-left">
+        <motion.span style={{ scale, opacity }} className="[text-shadow:0px_-5px_10px_rgba(0,0,0,1)] origin-left">
           Taka
         </motion.span>
       </a>
