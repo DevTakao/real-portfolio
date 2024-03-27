@@ -63,7 +63,7 @@ const MobileNav = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="menu-button block sm:hidden fixed top-2 right-2 z-[11] p-1 bg-[#000]/50 rounded-lg data-[open=true]:-scale-100 transition-all duration-500"
       >
-        <CgMenuRight size={35} />
+        <CgMenuRight size={50} />
       </button>
       <nav
         aria-expanded={isOpen}
