@@ -34,7 +34,7 @@ const NavButton = ({ href, label, handleClick }: NavButtonProps) => {
 };
 
 const MobileNav = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <button
