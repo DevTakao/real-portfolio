@@ -39,7 +39,7 @@ const HeroSection = () => {
   }, [loadedImageCount, isDisguised]);
 
   return (
-    <section className="hero-section relative overflow-hidden">
+    <section id="home" className="hero-section relative overflow-hidden">
       <img onLoad={incrementLoadCount} src={Forest} alt="forest" className="block w-full h-screen object-cover" />
 
       <motion.div

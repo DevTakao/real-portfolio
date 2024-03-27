@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { CgMenuRight } from "react-icons/cg";
 
 const navigationVars = {
@@ -36,6 +36,8 @@ const NavButton = ({ href, label, handleClick }: NavButtonProps) => {
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const scale = useTransform(scrollY, [500, 100], [0.75, 1], { clamp: true });
 
   useEffect(() => {
     if (isOpen) {
@@ -57,6 +59,16 @@ const MobileNav = () => {
 
   return (
     <>
+      <a
+        href="#home"
+        className="inline-flex sm:hidden font-title fixed z-[11] top-4 left-0 text-2xl pl-5 items-center"
+        aria-label="Home"
+      >
+        <img src="/favicon.png" alt="taka" width={44} className="mr-2 rounded-full bg-green-dark" />
+        <motion.span style={{ scale }} className="[text-shadow:0px_-5px_10px_rgba(0,0,0,1)] origin-left">
+          Taka
+        </motion.span>
+      </a>
       <button
         aria-label="Menu"
         data-open={isOpen}
