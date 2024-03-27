@@ -8,6 +8,7 @@ export default {
         bluegreen: "#354F4E",
         "green-light": "#373f2B",
         "green-dark": "#273C2B",
+        whitegreen: "#CCDCB0",
         white: "#fefefe",
         black: "#1f1f1f",
       },

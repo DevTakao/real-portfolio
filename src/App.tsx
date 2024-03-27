@@ -1,12 +1,14 @@
-import NavBar from "@/common/NavBar";
 import Home from "@/pages/Home";
 import Footer from "@/common/Footer";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import MobileNav from "./common/MobileNav";
+import DesktopNav from "@/common/DesktopNav";
 
 function App() {
   return (
     <GoogleReCaptchaProvider reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}>
-      <NavBar />
+      <MobileNav />
+      <DesktopNav />
       <Home />
       <Footer />
     </GoogleReCaptchaProvider>

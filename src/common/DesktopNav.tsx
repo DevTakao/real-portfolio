@@ -23,7 +23,7 @@ const NavButton = ({ href, label }: NavButtonProps) => {
   );
 };
 
-const NavBar = () => {
+const DesktopNav = () => {
   const [isShadowOn, setIsShadowOn] = useState(false);
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [500, 100], [0.9, 0], { clamp: true });
@@ -34,7 +34,7 @@ const NavBar = () => {
   return (
     <nav
       className={classNames(
-        "fixed z-[9] top-0 left-0 w-full flex items-center justify-between px-10 py-3 text-[3vw] md:text-lg text-white font-bold font-body [text-shadow:0px_-5px_10px_rgba(0,0,0,1)]",
+        "hidden sm:flex fixed z-[9] top-0 left-0 w-full items-center justify-between px-10 py-3 text-[3vw] md:text-lg text-white font-bold font-body [text-shadow:0px_-5px_10px_rgba(0,0,0,1)]",
         isShadowOn ? "shadow-lg" : "shadow-none"
       )}
     >
@@ -55,4 +55,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default DesktopNav;
