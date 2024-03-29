@@ -74,7 +74,7 @@ const MobileNav = () => {
         aria-label="Menu"
         data-open={isOpen}
         onClick={() => setIsOpen(!isOpen)}
-        className="menu-button block sm:hidden fixed top-2 right-2 z-[11] p-1 bg-[#000]/50 rounded-lg data-[open=true]:-scale-100 transition-all duration-500"
+        className="menu-button block sm:hidden fixed top-2 right-2 z-[11] p-1 bg-[#000]/50 rounded-lg -scale-y-100 -scale-x-100 data-[open=true]:scale-x-100 transition-all duration-500"
       >
         <CgMenuRight size={44} />
       </button>
