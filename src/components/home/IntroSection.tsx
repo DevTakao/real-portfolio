@@ -49,8 +49,8 @@ after:content-[''] after:w-full after:h-[5vh] after:bg-gradient-to-t after:from-
           wisdom of an experienced mentor. Thus, I enrolled at a JavaScript & ReactJS Course at Turing.
         </IntroBlock>
         <IntroBlock>
-          I started applying for jobs after finishing the Course. It didn't take more than two months for me to land my
-          first job at a Singaporean start-up as a remote React Developer.
+          I started applying for jobs after finishing the Course. Very quickly, I landed my first job at a Singaporean
+          start-up called Nexstack as a remote React Developer.
         </IntroBlock>
       </div>
     </section>
