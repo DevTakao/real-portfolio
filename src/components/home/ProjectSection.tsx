@@ -106,9 +106,11 @@ const ProjectSection = () => {
           <TbApi />
         </ProjectBlock>
       </div>
-      <p className="font-body text-sm text-center max-w-screen-md mx-auto mt-10 px-2">
-        *Sources are not included due to NDA*
-      </p>
+      <div className="flex justify-center mt-10">
+        <p className="inline font-body text-sm font-semibold text-center mx-auto py-2 px-5 bg-white text-black rounded-full">
+          All the projects are NDA-signed
+        </p>
+      </div>
     </section>
   );
 };
