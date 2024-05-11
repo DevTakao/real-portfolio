@@ -21,12 +21,12 @@ const NavButton = ({ href, label, handleClick }: NavButtonProps) => {
   return (
     <li
       onClick={handleClick}
-      className="nav-link block w-full relative mb-[7.5vh] font-title border-l-[3px] border-b-[3px] border-whitegreen px-5 pt-1 pb-4"
+      className="nav-link block w-full relative mb-[7.5vh] font-title border-l-[2px] border-b-[2px] border-whitegreen px-5 pt-1 pb-4"
     >
       <a
         aria-label={label}
         href={href}
-        className="block leading-none w-full h-full text-2xl font-medium active:translate-x-5 transition-all duration-300"
+        className="block leading-none w-full h-full text-lg font-medium active:translate-x-5 transition-all duration-300"
       >
         <span className="relative z-[1]">{label}</span>
       </a>
@@ -65,16 +65,19 @@ const MobileNav = () => {
         className="inline-flex sm:hidden font-title fixed z-[11] top-3 left-0 text-2xl pl-5 items-center"
         aria-label="Home"
       >
-        <img src="/favicon.png" alt="taka" width={44} className="mr-2 rounded-full bg-green-dark" />
-        <motion.span style={{ scale, opacity }} className="[text-shadow:0px_-5px_10px_rgba(0,0,0,1)] origin-left">
-          Taka
+        <img src="/favicon.png" alt="takao" width={44} className="mr-2 rounded-full bg-green-dark" />
+        <motion.span
+          style={{ scale, opacity }}
+          className="[text-shadow:0px_-5px_10px_rgba(0,0,0,1)] origin-left text-lg uppercase"
+        >
+          Portfolio
         </motion.span>
       </a>
       <button
         aria-label="Menu"
         data-open={isOpen}
         onClick={() => setIsOpen(!isOpen)}
-        className="menu-button block sm:hidden fixed top-2 right-2 z-[11] p-1 bg-[#000]/50 rounded-lg -scale-y-100 -scale-x-100 data-[open=true]:scale-x-100 transition-all duration-500"
+        className="menu-button block sm:hidden fixed top-2 right-2 z-[11] p-1 bg-[#000]/50 rounded-lg -scale-y-100 scale-x-100 data-[open=true]:-scale-x-100 transition-all duration-500"
       >
         <CgMenuRight size={44} />
       </button>
@@ -102,6 +105,9 @@ const MobileNav = () => {
           <NavButton handleClick={() => setIsOpen(false)} href="#career" label="Career" />
           <NavButton handleClick={() => setIsOpen(false)} href="#projects" label="Projects" />
           <NavButton handleClick={() => setIsOpen(false)} href="#education" label="Education" />
+          <p className="text-sm opacity-75 mt-auto absolute px-5 bottom-5 left-[50%] -translate-x-[50%] w-full text-left">
+            &copy; Takao (Aung Kaung Khant)
+          </p>
         </ul>
       </nav>
     </>
