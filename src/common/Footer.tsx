@@ -12,7 +12,7 @@ const Footer = () => {
       <img
         src={Bush}
         alt="bush"
-        className="absolute max-w-[25vw] z-[2] object-contain bottom-0 left-0 pointer-events-none"
+        className="absolute max-w-[25vw] z-[2] object-contain bottom-0 left-0 pointer-events-none drop-shadow-2xl"
       />
       <div className="socials max-w-md mx-auto text-4xl md:text-[3vw] flex items-center justify-center mb-10 [&>a]:mr-2 [&>a:last]:mr-0">
         <a
