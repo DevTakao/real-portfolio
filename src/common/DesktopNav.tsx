@@ -15,8 +15,8 @@ const NavButton = ({ href, label }: NavButtonProps) => {
         <span className="relative z-[1]">{label}</span>
         <span
           style={{ "--bg-leaf": `url(${LeafIcon})` } as CSSProperties}
-          className="hidden md:block pointer-events-none absolute z-[0] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rotate-[-240deg] h-[250%] w-[3rem] object-contain [background-image:var(--bg-leaf)] bg-center bg-contain bg-no-repeat
-      opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-300"
+          className="hidden md:block pointer-events-none absolute z-[0] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rotate-[120deg] h-[300%] w-[3.5rem] object-contain [background-image:var(--bg-leaf)] bg-center bg-contain bg-no-repeat
+      opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-300 drop-shadow-2xl"
         />
       </a>
     </li>
