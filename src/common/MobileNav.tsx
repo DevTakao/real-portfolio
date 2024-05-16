@@ -105,7 +105,7 @@ const MobileNav = () => {
           <NavButton handleClick={() => setIsOpen(false)} href="#career" label="Career" />
           <NavButton handleClick={() => setIsOpen(false)} href="#projects" label="Projects" />
           <NavButton handleClick={() => setIsOpen(false)} href="#education" label="Education" />
-          <p className="text-sm opacity-75 mt-auto absolute px-5 bottom-5 left-[50%] -translate-x-[50%] w-full text-left">
+          <p className="text-sm font-body opacity-75 mt-auto absolute px-5 bottom-5 left-[50%] -translate-x-[50%] w-full text-left">
             &copy; Takao (Aung Kaung Khant)
           </p>
         </ul>

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { BiMap } from "react-icons/bi";
 import { FaChrome, FaQrcode } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa6";
@@ -6,7 +6,7 @@ import { GiRollingEnergy, GiTrade } from "react-icons/gi";
 import { GrDashboard } from "react-icons/gr";
 import { IoPhonePortrait } from "react-icons/io5";
 import { TbApi } from "react-icons/tb";
-import FadeInBlock from "@/common/FadeInBlock";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 export type ProjectBlockProps = {
   title: string;
@@ -15,25 +15,72 @@ export type ProjectBlockProps = {
   children: ReactNode;
 };
 
+const expandVariants = {
+  initial: {
+    scale: 0.975,
+    opacity: 0.1,
+    borderStyle: "dotted",
+    borderRadius: "40px",
+  },
+  show: {
+    scale: 1,
+    opacity: 1,
+    borderStyle: "solid",
+    borderRadius: "0px",
+    transition: {
+      duration: 0.75,
+      ease: "linear",
+    },
+  },
+  hide: {
+    scale: 0.975,
+    opacity: 0.1,
+    borderStyle: "dotted",
+    borderRadius: "40px",
+    transition: {
+      duration: 0.5,
+      ease: "linear",
+    },
+  },
+};
+
 const ProjectBlock = ({ title, body, tags, children }: ProjectBlockProps) => {
+  const [show, setShow] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "start start"] });
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest >= 0.5 && !show) {
+      setShow(true);
+    }
+    if (latest < 0.5 && show) {
+      setShow(false);
+    }
+  });
+
   return (
-    <FadeInBlock>
-      <div className="project group h-full min-h-[250px] md:min-h-[400px] flex flex-col border-2 border-white rounded-lg p-5 md:p-7 text-center leading-normal hover:bg-white hover:text-green-dark hover:cursor-pointer transition-colors duration-500">
-        <div className="text-[10vw] md:text-[7vw] flex flex-col items-center mb-5">{children}</div>
-        <h3 className="text-lg md:text-[2vw] font-semibold font-title my-4">{title}</h3>
-        <p className="text-sm md:text-[1.2vw] font-body mb-5 flex-grow">{body}</p>
-        <ul className="text-xs flex flex-wrap items-center py-2">
-          {tags.map((tag: string, i: number) => (
-            <li
-              key={i}
-              className="text-white font-mono py-1 px-2 rounded-full border border-white inline-block mr-2 mb-2 group-hover:border-green-dark group-hover:text-green-dark transition-colors duration-400"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </FadeInBlock>
+    <motion.div
+      ref={containerRef}
+      variants={expandVariants}
+      initial="initial"
+      animate={show ? "show" : "hide"}
+      className="project group h-full min-h-[250px] md:min-h-[400px] flex flex-col border-2 border-white rounded-lg p-5 md:p-7 text-center leading-normal hover:bg-white hover:text-green-dark hover:cursor-pointer transition-colors duration-500"
+    >
+      <div className="text-[10vw] md:text-[7vw] flex flex-col items-center mb-5">{children}</div>
+      <h3 className="text-lg md:text-[2vw] font-semibold font-title my-4">{title}</h3>
+      <p className="text-sm md:text-[1.2vw] font-body mb-5 flex-grow">{body}</p>
+      <ul className="text-xs flex flex-wrap items-center justify-center py-2">
+        {tags.map((tag: string, i: number) => (
+          <li
+            key={i}
+            className="text-white font-mono py-1 px-2 rounded-full border border-white inline-block mr-2 mb-2 group-hover:border-green-dark group-hover:text-green-dark transition-colors duration-400"
+          >
+            {tag}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
   );
 };
 
