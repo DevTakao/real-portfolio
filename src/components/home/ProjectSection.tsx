@@ -18,14 +18,12 @@ export type ProjectBlockProps = {
 const expandVariants = {
   initial: {
     scale: 0.975,
-    opacity: 0.1,
-    borderStyle: "dotted",
+    opacity: 0,
     borderRadius: "40px",
   },
   show: {
     scale: 1,
     opacity: 1,
-    borderStyle: "solid",
     borderRadius: "0px",
     transition: {
       duration: 0.75,
@@ -34,9 +32,28 @@ const expandVariants = {
   },
   hide: {
     scale: 0.975,
-    opacity: 0.1,
-    borderStyle: "dotted",
+    opacity: 0,
     borderRadius: "40px",
+    transition: {
+      duration: 0.5,
+      ease: "linear",
+    },
+  },
+};
+
+const ndaVariants = {
+  initial: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.75,
+      ease: "linear",
+    },
+  },
+  hide: {
+    opacity: 0,
     transition: {
       duration: 0.5,
       ease: "linear",
@@ -86,8 +103,12 @@ const ProjectBlock = ({ title, body, tags, children }: ProjectBlockProps) => {
 
 const ProjectSection = () => {
   return (
-    <section id="projects" className="relative bg-gradient-to-b from-green-light to-green-dark py-12 md:py-24">
-      <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">Projects Finished</h3>
+    <section
+      id="projects"
+      className="relative bg-gradient-to-b from-green-light to-green-dark py-12 md:py-24
+    after:content-[''] after:w-full after:h-[5vh] after:bg-gradient-to-t after:from-[transparent] after:to-green-dark after:absolute after:z-[2] after:top-[100%] after:left-0"
+    >
+      <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">What I Have Done</h3>
       <div className="projects-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[90%] mx-auto md:px-5">
         <ProjectBlock
           title="CMS Dashboards"
@@ -154,9 +175,15 @@ const ProjectSection = () => {
         </ProjectBlock>
       </div>
       <div className="flex justify-center mt-10">
-        <p className="inline font-body text-sm font-semibold text-center mx-auto py-2 px-5 bg-white text-black rounded-full">
-          All the projects are NDA-signed
-        </p>
+        <motion.p
+          variants={ndaVariants}
+          initial="initial"
+          whileInView="show"
+          exit="hide"
+          className="inline font-body text-sm font-semibold text-center mx-auto py-2 px-5 bg-white text-black rounded-full"
+        >
+          Projects are NDA-signed
+        </motion.p>
       </div>
     </section>
   );

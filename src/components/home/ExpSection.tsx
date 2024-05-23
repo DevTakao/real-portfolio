@@ -24,7 +24,7 @@ const contentVars = {
     transition: {
       duration: 0.5,
       ease: "linear",
-      delay: 0.75,
+      delay: 0.2,
     },
   },
 };
@@ -38,8 +38,8 @@ export type ExpBlockProps = {
 
 const ExpBlock = ({ position, company, companyUrl, duration }: ExpBlockProps) => {
   return (
-    <div className="exp-block flex flex-col leading-none py-3 mb-5">
-      <h4 className="text-base md:text-[2vw] font-semibold mb-2">{position}</h4>
+    <div className="exp-block flex flex-col leading-none py-3">
+      <h4 className="text-base md:text-[2vw] font-semibold mb-5">{position}</h4>
       <hr className="opacity-75 mb-2" />
       <div className="px-2">
         <a href={companyUrl} target="_blank" rel="noreferrer" className="text-sm flex items-center mb-1">
@@ -78,7 +78,7 @@ const ExpSection = () => {
         >
           <h3 className="text-2xl md:text-[3vw] font-title mb-5 md:mb-10 text-center relative z-[1]">Career</h3>
           <div className="px-5 md:px-12">
-            <div className="experience-list flex flex-col text-left md:pr-12">
+            <div className="experience-list flex flex-col text-left md:pr-12 [&>div]:mb-12 last:[&>div]:mb-0">
               <ExpBlock
                 position="Technical Research Analyst"
                 company="Visible One, Singapore"
