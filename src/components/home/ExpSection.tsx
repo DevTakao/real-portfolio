@@ -74,11 +74,11 @@ const ExpSection = () => {
           variants={contentVars}
           initial="initial"
           whileInView="animate"
-          className="relative z-[1] py-5 md:py-16 px-2 backdrop-blur-sm"
+          className="relative z-[1] py-10 md:py-16 px-2 backdrop-blur-sm"
         >
           <h3 className="text-2xl md:text-[3vw] font-title mb-5 md:mb-10 text-center relative z-[1]">Career</h3>
           <div className="px-5 md:px-12">
-            <div className="experience-list flex flex-col text-left md:pr-12 [&>div]:mb-12 last:[&>div]:mb-0">
+            <div className="experience-list flex flex-col text-left md:pr-12 [&>div]:mb-5 lg:[&>div]:mb-12 last:[&>div]:mb-0">
               <ExpBlock
                 position="Technical Research Analyst"
                 company="Visible One, Singapore"
