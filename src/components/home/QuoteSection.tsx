@@ -51,7 +51,7 @@ const QuoteSection = () => {
     after:content-[''] after:w-full after:h-[5vh] after:bg-gradient-to-t after:from-[transparent] after:to-green-dark after:absolute after:z-[2] after:top-[100%] after:left-0"
     >
       <div className="max-w-screen-md mx-auto px-5 relative z-[1]">
-        <blockquote className="font-body text-sm md:text-[2vw] leading-normal relative">
+        <blockquote className="font-body text-lg md:text-[1.6vw] leading-normal relative">
           <span className="absolute -top-7 -right-4 md:-top-[5vw] md:-right-[5vw] text-7xl md:text-[10vw]">
             <motion.span variants={iconVars} initial="initial" whileInView="animate" className="block">
               <BiSolidQuoteAltRight />

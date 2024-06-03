@@ -1,6 +1,6 @@
 import { ReactNode, useRef, useState } from "react";
 import { BiMap } from "react-icons/bi";
-import { FaChrome, FaQrcode } from "react-icons/fa";
+import { FaChrome } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa6";
 import { GiRollingEnergy, GiTrade } from "react-icons/gi";
 import { GrDashboard } from "react-icons/gr";
@@ -112,63 +112,56 @@ const ProjectSection = () => {
       <div className="projects-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[90%] mx-auto md:px-5">
         <ProjectBlock
           title="CMS Dashboards"
-          body="Fast and user-friendly e-commerce and administration dashboards."
+          body="Performant, user-friendly e-commerce and administration content management systems."
           tags={["Next.js", "Reactstrap", "Vue 3", "Nuxt", "AWS Lambda", "Pug.js", "Node"]}
         >
           <GrDashboard />
         </ProjectBlock>
         <ProjectBlock
           title="Merchant Portal"
-          body="Dashboards with convenient data exchange between users of different parties."
+          body="Sheng Siong supermarket's web portal between suppliers and the mall to exchange information daily, such as invoices, promotions and receipts."
           tags={["Next.js", "Bootstrap", "GraphQL", "Strapi"]}
         >
           <GiTrade />
         </ProjectBlock>
         <ProjectBlock
-          title="Geolocation"
-          body="Maps and location pins come into rescue to help discover the important locations and notify them in real time."
+          title="Geolocation Apps"
+          body="Project for a network of Singaporean government departments. Includes features of viewing locations of different departments and their real-time data reports on a Map View."
           tags={["Leaflet", "Map APIs", "Next.js", "REST"]}
         >
           <BiMap />
         </ProjectBlock>
         <ProjectBlock
           title="Animations"
-          body="Breathe life into digital content, making them feel more immersive and fun. It's not just a website anymore. It's an alternate world!"
+          body="Created text animations in a landing page, more than 50 complex components for a reusable UI-component library, and card animations for a healthcare website."
           tags={["AnimeJS", "Framer Motion", "Tailwind", "SCSS", "CSS", "JavaScript"]}
         >
           <GiRollingEnergy />
         </ProjectBlock>
         <ProjectBlock
           title="Landing Page"
-          body="Eye-catching and mobile-friendly landing pages for small businesses and organizations."
+          body="SPA landing page with aesthetic text animation for YTU Anime Club."
           tags={["HTML", "CSS", "JavaScript", "AnimeJS"]}
         >
           <IoPhonePortrait />
         </ProjectBlock>
         <ProjectBlock
           title="Chrome Extension"
-          body="Useful chrome extensions with the modern Manifest V3 API."
+          body="Chrome extension to save and share information, written with the modern Manifest V3 API for Visible One internal team."
           tags={["Manifest V3", "TypeScript", "Tailwind", "Extension"]}
         >
           <FaChrome />
         </ProjectBlock>
         <ProjectBlock
-          title="PDF Maker"
-          body="Customers can modify and download their data in PDF formats."
+          title="PDF & QR Generator"
+          body="A website where customers can register their data, upload PDF templates, populate dynamic data on the PDFs together with public link QR Codes, and download them."
           tags={["React", "TypeScript", "TailwindCSS", "Node"]}
         >
           <FaFilePdf />
         </ProjectBlock>
         <ProjectBlock
-          title="QR Code Generator"
-          body="Dynamically generate QR Codes and provide output in various media formats."
-          tags={["Pixi", "React", "TypeScript"]}
-        >
-          <FaQrcode />
-        </ProjectBlock>
-        <ProjectBlock
           title="Migration"
-          body="Migrating an existing system with important data from outdated technology stacks to modern blazing fast and secure ones, with little to no loss of data."
+          body="Involved in a migration project where we had to move an existing Microsoft Dynamics 365 system to MongoDB and AWS Serverless architecture with no data loss."
           tags={["Node", "MongoDB", "Mongoose", "AWS Lambda"]}
         >
           <TbApi />

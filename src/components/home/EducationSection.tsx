@@ -99,10 +99,11 @@ const EducationSection = () => {
 
         <FadeInBlock>
           <p className="font-body w-[90%] max-w-screen-md mx-auto text-justify [text-align-last:center] px-5 [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] border-2 border-white p-5">
-            I am very grateful to be exposed to great education since my childhood. There were many really inspiring
-            teachers in my early life that I can remember. They are the foundation of my critical thinking, academic
-            excellence and self-esteem. <br />
-            <span className="mt-2 block">Thank you, my parents and my teachers.</span>
+            To be truly educated is to know and understand many things, but more importantly, to know how to seek
+            information, question, challenge, and proceed independently, while also knowing when to collaborate with
+            others.
+            <br />
+            <span className="mt-2 block font-extrabold">&#8212; Noam Chomsky (Computer Science Pioneer)</span>
           </p>
         </FadeInBlock>
       </div>
