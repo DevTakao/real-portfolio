@@ -1,6 +1,6 @@
 import { ReactNode, useRef, useState } from "react";
 import { BiMap } from "react-icons/bi";
-import { FaChrome } from "react-icons/fa";
+import { FaChrome, FaGlobe, FaHandPointer } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa6";
 import { GiRollingEnergy, GiTrade } from "react-icons/gi";
 import { GrDashboard } from "react-icons/gr";
@@ -82,7 +82,7 @@ const ProjectBlock = ({ title, body, tags, children }: ProjectBlockProps) => {
       variants={expandVariants}
       initial="initial"
       animate={show ? "show" : "hide"}
-      className="project group h-full min-h-[250px] md:min-h-[400px] flex flex-col border-2 border-white rounded-lg p-5 md:p-7 text-center leading-normal hover:bg-white hover:text-green-dark hover:cursor-pointer transition-colors duration-500"
+      className="project group h-full min-h-[250px] md:min-h-[400px] flex flex-col border-2 border-white rounded-lg p-5 md:p-7 text-center leading-normal hover:bg-white hover:text-green-dark transition-colors duration-500"
     >
       <div className="text-[10vw] md:text-[7vw] flex flex-col items-center mb-5">{children}</div>
       <h3 className="text-lg md:text-[2vw] font-semibold font-title my-4">{title}</h3>
@@ -110,6 +110,24 @@ const ProjectSection = () => {
     >
       <h3 className="text-2xl md:text-[3vw] font-title mb-14 text-center">What I Have Done</h3>
       <div className="projects-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[90%] mx-auto md:px-5">
+        <ProjectBlock
+          title="Portfolio (Old version)"
+          body="This is an old portfolio which I wrote around the start of 2024 as a fun new-year project. You can see how much I played with the design."
+          tags={["React", "Tailwind", "Framer Motion"]}
+        >
+          <FaGlobe />
+          <a
+            target="_blank"
+            rel="noreferrer nofollow"
+            href="https://devtakao-old.vercel.app/"
+            className="text-sm mt-5 inline-flex items-center font-bold group"
+          >
+            <span className="hover:underline">Visit</span>
+            <span className="ml-1 hidden group-hover:inline">
+              <FaHandPointer />
+            </span>
+          </a>
+        </ProjectBlock>
         <ProjectBlock
           title="CMS Dashboards"
           body="Performant, user-friendly e-commerce and administration content management systems."
