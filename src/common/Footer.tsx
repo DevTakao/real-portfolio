@@ -1,18 +1,28 @@
 import { FaLinkedin, FaGithubSquare, FaFacebookSquare } from "react-icons/fa";
 import Bush from "@/assets/images/bush.avif";
 import { HiArrowLongRight } from "react-icons/hi2";
+import { motion } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const Footer = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end end"] });
+  const x = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"], { clamp: true });
+  const y = useTransform(scrollYProgress, [0, 1], ["50%", "0%"], { clamp: true });
+
   return (
     <footer
+      ref={containerRef}
       className="Footer bg-gradient-to-b from-green-light to-green-dark pt-[10vh] pb-[10vh] sm:pb-[5vh] px-6 text-base font-body bg-light text-center relative 
     before:content-[''] before:w-full before:h-[5vh] before:bg-gradient-to-b before:from-[transparent] before:to-green-light before:absolute before:z-[2] before:bottom-[100%] before:left-0 
     "
     >
-      <img
+      <motion.img
         src={Bush}
         alt="bush"
-        className="absolute max-w-[25vw] z-[2] object-contain bottom-0 left-0 pointer-events-none drop-shadow-2xl"
+        style={{ x, y }}
+        className="absolute w-[35vw] md:max-w-[25vw] z-[2] object-contain bottom-0 left-0 pointer-events-none drop-shadow-2xl"
       />
       <div className="socials max-w-md mx-auto text-4xl md:text-[3vw] flex items-center justify-center mb-10 [&>a]:mr-2 [&>a:last]:mr-0">
         <a
