@@ -98,7 +98,7 @@ const EducationSection = () => {
         </div>
 
         <FadeInBlock>
-          <p className="font-body w-[90%] max-w-screen-md mx-auto text-justify [text-align-last:center] px-5 [text-shadow:0px_-5px_10px_rgba(0,0,0,1)] border-2 border-white p-5">
+          <p className="font-body w-[90%] max-w-screen-md mx-auto text-justify [text-align-last:center] px-5 [text-shadow:0px_-5px_5px_rgba(0,0,0,0.1)] border-2 border-white p-5">
             To be truly educated is to know and understand many things, but more importantly, to know how to seek
             information, question, challenge, and proceed independently, while also knowing when to collaborate with
             others.
