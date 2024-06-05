@@ -8,8 +8,7 @@ import { useRef } from "react";
 const Footer = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end end"] });
-  const x = useTransform(scrollYProgress, [0, 1], ["-20%", "0%"], { clamp: true });
-  const y = useTransform(scrollYProgress, [0, 1], ["10%", "0%"], { clamp: true });
+  const x = useTransform(scrollYProgress, [0, 1], ["-25%", "0%"], { clamp: true });
 
   return (
     <footer
@@ -21,7 +20,7 @@ const Footer = () => {
       <motion.img
         src={Bush}
         alt="bush"
-        style={{ x, y }}
+        style={{ x }}
         className="absolute w-[35vw] md:max-w-[25vw] z-[2] object-contain bottom-0 left-0 pointer-events-none drop-shadow-2xl"
       />
       <div className="socials max-w-md mx-auto text-4xl md:text-[3vw] flex items-center justify-center mb-10 [&>a]:mr-2 [&>a:last]:mr-0">
