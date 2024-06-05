@@ -8,8 +8,8 @@ import { useRef } from "react";
 const Footer = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end end"] });
-  const x = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"], { clamp: true });
-  const y = useTransform(scrollYProgress, [0, 1], ["50%", "0%"], { clamp: true });
+  const x = useTransform(scrollYProgress, [0, 1], ["-20%", "0%"], { clamp: true });
+  const y = useTransform(scrollYProgress, [0, 1], ["10%", "0%"], { clamp: true });
 
   return (
     <footer
