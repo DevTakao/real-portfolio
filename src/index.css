@@ -28,3 +28,54 @@ body {
 .grecaptcha-badge {
   z-index: 10;
 }
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes breathe {
+  from {
+    transform: scale(95%);
+  }
+  to {
+    transform: scale(105%);
+  }
+}
+
+@keyframes show-to-hide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide-to-show {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-slow-spin {
+    animation: slow-spin 12s linear infinite forwards;
+  }
+  .animate-breathe {
+    animation: breathe 2s linear infinite alternate;
+  }
+  .animate-show-to-hide {
+    animation: show-to-hide 2.5s linear infinite alternate;
+  }
+  .animate-hide-to-show {
+    animation: hide-to-show 2.5s linear infinite alternate;
+  }
+}
